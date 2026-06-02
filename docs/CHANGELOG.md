@@ -3,7 +3,7 @@
 ## Before Running the App
 
 ### Step 1: Apply SQL Migration
-Run `SUPABASE_MIGRATION_v2.sql` in your **Supabase SQL Editor**.
+Run `01_supabase_v2.sql` in your **Supabase SQL Editor**.
 This creates:
 - `messages` table with RLS for personal & class chat
 - `add_student_manually()` RPC function
@@ -101,6 +101,6 @@ The current `razorpay_key` in the `teachers` table is acceptable for MVP.
 ---
 
 ## SQL Files to Run (in order)
-1. `SUPABASE_MIGRATION_v2.sql` ← **New, required**
+1. `01_supabase_v2.sql` ← **New, required**
 2. The original schema SQL is already applied in your project
 
