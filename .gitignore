@@ -33,3 +33,34 @@ google-services.json
 node_modules/
 .env
 supabase/.temp/
+
+# App outputs
+*.apk
+*.ap_
+*.aab
+
+# Compiled class files & Executables
+*.class
+*.dex
+*.so
+
+# Log Files
+*.log
+
+# Environment & Secret files
+.env.*
+!.env.example
+secrets.xml
+*.p12
+*.pem
+*.key
+*.pub
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
