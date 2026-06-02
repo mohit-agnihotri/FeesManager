@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0A0F1E" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <!-- Header -->
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/bg_header_dark"
+        android:padding="16dp" android:gravity="center_vertical"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:text="🔔 Students" android:textSize="20sp"
+            android:textStyle="bold" android:textColor="#F1F5F9"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Tabs -->
+    <LinearLayout android:orientation="horizontal"
+        android:background="#111827" android:padding="8dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView android:id="@+id/tabJoinRequests"
+            android:text="Join Requests"
+            android:textSize="13sp" android:textStyle="bold"
+            android:textColor="#F1F5F9" android:gravity="center"
+            android:background="@drawable/bg_btn_indigo"
+            android:paddingLeft="16dp" android:paddingRight="16dp"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_weight="1" android:layout_marginEnd="4dp"
+            android:clickable="true" android:focusable="true"
+            android:layout_width="0dp" android:layout_height="wrap_content"/>
+
+        <TextView android:id="@+id/tabDefaulters"
+            android:text="Fee Defaulters"
+            android:textSize="13sp" android:textStyle="bold"
+            android:textColor="#94A3B8" android:gravity="center"
+            android:background="@drawable/bg_btn_secondary"
+            android:paddingLeft="16dp" android:paddingRight="16dp"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_weight="1" android:layout_marginStart="4dp"
+            android:clickable="true" android:focusable="true"
+            android:layout_width="0dp" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Filters (shown only for Fee Defaulters tab) -->
+    <LinearLayout android:id="@+id/layoutFilters"
+        android:orientation="horizontal" android:padding="12dp"
+        android:background="#0A0F1E" android:visibility="gone"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Spinner android:id="@+id/spinnerClass" android:background="@drawable/bg_input_modern"
+            android:paddingLeft="12dp" android:paddingRight="12dp" android:layout_weight="1"
+            android:layout_marginEnd="8dp" android:layout_width="0dp" android:layout_height="44dp"/>
+        <Spinner android:id="@+id/spinnerSort" android:background="@drawable/bg_input_modern"
+            android:paddingLeft="12dp" android:paddingRight="12dp" android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="44dp"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_weight="1"
+        android:layout_width="match_parent" android:layout_height="0dp">
+        <LinearLayout android:id="@+id/listPending" android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

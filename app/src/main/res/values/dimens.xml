@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+
+    <!-- Card & component sizing -->
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="btn_height">56dp</dimen>
+    <dimen name="btn_height_sm">44dp</dimen>
+
+    <!-- Action grid tiles — auto height via wrap_content + minHeight -->
+    <dimen name="tile_min_height">84dp</dimen>
+    <dimen name="tile_icon_size">26sp</dimen>
+    <dimen name="tile_label_size">12sp</dimen>
+
+    <!-- Typography -->
+    <dimen name="text_xs">11sp</dimen>
+    <dimen name="text_sm">13sp</dimen>
+    <dimen name="text_md">15sp</dimen>
+    <dimen name="text_lg">17sp</dimen>
+    <dimen name="text_xl">20sp</dimen>
+    <dimen name="text_2xl">24sp</dimen>
+    <dimen name="text_3xl">28sp</dimen>
+
+    <!-- Header -->
+    <dimen name="header_padding_v">20dp</dimen>
+    <dimen name="header_padding_h">20dp</dimen>
+
+    <!-- Screen padding -->
+    <dimen name="screen_padding">16dp</dimen>
+</resources>

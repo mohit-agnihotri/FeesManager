@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_gradient_main"
+    android:fillViewport="true"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <!-- Dark hero header -->
+        <LinearLayout android:orientation="vertical" android:gravity="center"
+            android:background="@drawable/bg_header_dark"
+            android:paddingTop="56dp" android:paddingBottom="40dp"
+            android:paddingLeft="32dp" android:paddingRight="32dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <TextView android:text="🏫" android:textSize="52sp" android:gravity="center"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+            <TextView android:text="Fees Manager Pro"
+                android:textSize="24sp" android:textStyle="bold" android:textColor="#F1F5F9"
+                android:gravity="center" android:layout_marginBottom="4dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+            <TextView android:text="Teacher Login"
+                android:textSize="14sp" android:textColor="#818CF8" android:gravity="center"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Form Card -->
+        <LinearLayout android:orientation="vertical"
+            android:paddingLeft="20dp" android:paddingRight="20dp"
+            android:paddingTop="28dp" android:paddingBottom="32dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <!-- Email -->
+            <TextView android:text="Email Address" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/username" android:hint="your@email.com"
+                android:textColor="#F1F5F9" android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern" android:padding="16dp"
+                android:inputType="textEmailAddress" android:textSize="15sp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <!-- Password -->
+            <TextView android:text="Password" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/password" android:hint="Min 6 characters"
+                android:textColor="#F1F5F9" android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern" android:padding="16dp"
+                android:inputType="textPassword" android:textSize="15sp"
+                android:layout_marginBottom="28dp"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <!-- Login Button -->
+            <Button android:id="@+id/loginBtn" android:text="Login"
+                android:textColor="#fff" android:textSize="16sp" android:textStyle="bold"
+                android:textAllCaps="false" android:background="@drawable/bg_btn_indigo"
+                android:stateListAnimator="@null" android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <!-- Divider -->
+            <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <View android:background="#2D3F55" android:layout_weight="1"
+                    android:layout_width="0dp" android:layout_height="1dp"/>
+                <TextView android:text="  or continue with  " android:textColor="#475569"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <View android:background="#2D3F55" android:layout_weight="1"
+                    android:layout_width="0dp" android:layout_height="1dp"/>
+            </LinearLayout>
+
+            <!-- Google Button -->
+            <Button android:id="@+id/btnGoogleSignIn"
+                android:text="  Sign in with Google" android:textAllCaps="false"
+                android:textColor="#0F172A" android:textSize="15sp"
+                android:background="@drawable/bg_btn_white"
+                android:stateListAnimator="@null" android:layout_marginBottom="28dp"
+                android:drawableLeft="@android:drawable/ic_menu_search"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <TextView android:id="@+id/tvCreate"
+                android:text="New teacher? Create Profile →"
+                android:textColor="#6366F1" android:textSize="14sp"
+                android:gravity="center" android:padding="8dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

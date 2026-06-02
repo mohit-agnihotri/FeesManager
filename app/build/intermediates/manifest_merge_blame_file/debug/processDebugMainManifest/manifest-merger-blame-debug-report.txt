@@ -1,0 +1,819 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.feesmanager"
+4    android:versionCode="8"
+5    android:versionName="8.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="36" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+12-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:6:5-77
+12-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:6:22-74
+13    <uses-permission
+13-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:7:5-108
+14        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+14-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:7:22-78
+15        android:maxSdkVersion="28" />
+15-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:7:79-105
+16    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+16-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:8:5-76
+16-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:8:22-73
+17    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+17-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:9:5-72
+17-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:9:22-69
+18    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+18-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:10:5-74
+18-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:10:22-71
+19    <uses-permission
+19-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:10:5-12:36
+20        android:name="android.permission.NFC"
+20-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:11:9-46
+21        android:required="false" />
+21-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:12:9-33
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+22-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:10:5-79
+22-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:10:22-76
+23
+24    <uses-feature
+24-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:14:5-16:36
+25        android:name="android.hardware.nfc"
+25-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:15:9-44
+26        android:required="false" />
+26-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:16:9-33
+27
+28    <queries>
+28-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:18:5-35:15
+29        <intent>
+29-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:19:9-25:18
+30            <action android:name="android.intent.action.VIEW" />
+30-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:13-65
+30-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:21-62
+31
+32            <data
+32-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:22:13-24:40
+33                android:host="pay"
+33-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:23:17-35
+34                android:scheme="upi" />
+34-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:24:17-37
+35        </intent>
+36        <intent>
+36-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:26:9-32:18
+37            <action android:name="android.intent.action.VIEW" />
+37-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:13-65
+37-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:21-62
+38
+39            <data
+39-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:22:13-24:40
+40                android:host="mandate"
+40-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:23:17-35
+41                android:scheme="upi" />
+41-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:24:17-37
+42        </intent>
+43
+44        <package android:name="com.android.chrome" />
+44-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:34:9-54
+44-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:34:18-51
+45
+46        <intent>
+46-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:11:9-17:18
+47            <action android:name="android.intent.action.VIEW" />
+47-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:13-65
+47-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:21-62
+48
+49            <data
+49-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:22:13-24:40
+50                android:mimeType="*/*"
+51                android:scheme="*" />
+51-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:24:17-37
+52        </intent>
+53        <intent>
+53-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:18:9-27:18
+54            <action android:name="android.intent.action.VIEW" />
+54-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:13-65
+54-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:21-62
+55
+56            <category android:name="android.intent.category.BROWSABLE" />
+56-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:21:13-74
+56-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:21:23-71
+57
+58            <data
+58-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:22:13-24:40
+59                android:host="pay"
+59-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:23:17-35
+60                android:mimeType="*/*"
+61                android:scheme="upi" />
+61-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:24:17-37
+62        </intent>
+63        <intent>
+63-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:28:9-30:18
+64            <action android:name="android.intent.action.MAIN" />
+64-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:27:17-69
+64-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:27:25-66
+65        </intent>
+66        <intent>
+66-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:31:9-35:18
+67            <action android:name="android.intent.action.SEND" />
+67-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:32:13-65
+67-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:32:21-62
+68
+69            <data android:mimeType="*/*" />
+69-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:22:13-24:40
+70        </intent>
+71        <intent>
+71-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:36:9-38:18
+72            <action android:name="rzp.device_token.share" />
+72-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:37:13-61
+72-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:37:21-58
+73        </intent>
+74    </queries>
+75
+76    <uses-feature
+76-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Asus\.gradle\caches\8.13\transforms\672a2fb963a90a95b9a97f3a30b7e346\transformed\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+77        android:glEsVersion="0x00020000"
+77-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Asus\.gradle\caches\8.13\transforms\672a2fb963a90a95b9a97f3a30b7e346\transformed\play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+78        android:required="true" />
+78-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Asus\.gradle\caches\8.13\transforms\672a2fb963a90a95b9a97f3a30b7e346\transformed\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+79
+80    <permission
+80-->[androidx.core:core:1.13.1] C:\Users\Asus\.gradle\caches\8.13\transforms\9a8649b3fc3eee3315cdde02b6b8403d\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+81        android:name="com.example.feesmanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+81-->[androidx.core:core:1.13.1] C:\Users\Asus\.gradle\caches\8.13\transforms\9a8649b3fc3eee3315cdde02b6b8403d\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+82        android:protectionLevel="signature" />
+82-->[androidx.core:core:1.13.1] C:\Users\Asus\.gradle\caches\8.13\transforms\9a8649b3fc3eee3315cdde02b6b8403d\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+83
+84    <uses-permission android:name="com.example.feesmanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Normal permission, automatically granted on API 23+ -->
+84-->[androidx.core:core:1.13.1] C:\Users\Asus\.gradle\caches\8.13\transforms\9a8649b3fc3eee3315cdde02b6b8403d\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+84-->[androidx.core:core:1.13.1] C:\Users\Asus\.gradle\caches\8.13\transforms\9a8649b3fc3eee3315cdde02b6b8403d\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+85    <uses-permission android:name="android.permission.READ_BASIC_PHONE_STATE" />
+85-->[com.razorpay:core:1.0.13] C:\Users\Asus\.gradle\caches\8.13\transforms\25ab151ab718ccf8bd0152abc0fc88c8\transformed\core-1.0.13\AndroidManifest.xml:10:5-81
+85-->[com.razorpay:core:1.0.13] C:\Users\Asus\.gradle\caches\8.13\transforms\25ab151ab718ccf8bd0152abc0fc88c8\transformed\core-1.0.13\AndroidManifest.xml:10:22-78
+86
+87    <application
+87-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:13:5-108:19
+88        android:allowBackup="true"
+88-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:14:9-35
+89        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+89-->[androidx.core:core:1.13.1] C:\Users\Asus\.gradle\caches\8.13\transforms\9a8649b3fc3eee3315cdde02b6b8403d\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+90        android:dataExtractionRules="@xml/data_extraction_rules"
+90-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:15:9-65
+91        android:debuggable="true"
+92        android:extractNativeLibs="false"
+93        android:fullBackupContent="@xml/backup_rules"
+93-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:16:9-54
+94        android:icon="@mipmap/ic_launcher"
+94-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:17:9-43
+95        android:label="@string/app_name"
+95-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:18:9-41
+96        android:roundIcon="@mipmap/ic_launcher_round"
+96-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:19:9-54
+97        android:supportsRtl="true"
+97-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:20:9-35
+98        android:testOnly="true"
+99        android:theme="@style/Theme.FeesManager" >
+99-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:21:9-49
+100
+101        <!-- Entry: Splash → Language → Role Select -->
+102        <activity
+102-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:25:9-30:20
+103            android:name="com.example.feesmanager.SplashActivity"
+103-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:25:19-49
+104            android:exported="true" >
+104-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:25:50-73
+105            <intent-filter>
+105-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:26:13-29:29
+106                <action android:name="android.intent.action.MAIN" />
+106-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:27:17-69
+106-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:27:25-66
+107
+108                <category android:name="android.intent.category.LAUNCHER" />
+108-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:28:17-77
+108-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:28:27-74
+109            </intent-filter>
+110        </activity>
+111
+112        <!-- Chat -->
+113        <activity
+113-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:33:9-35:57
+114            android:name="com.example.feesmanager.MessageActivity"
+114-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:33:19-50
+115            android:exported="false"
+115-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:34:13-37
+116            android:windowSoftInputMode="adjustResize" />
+116-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:35:13-55
+117        <activity
+117-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:36:9-38:57
+118            android:name="com.example.feesmanager.ClassChatActivity"
+118-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:36:19-52
+119            android:exported="false"
+119-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:37:13-37
+120            android:windowSoftInputMode="adjustResize" />
+120-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:38:13-55
+121        <activity
+121-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:39:9-40:39
+122            android:name="com.example.feesmanager.ClassSelectChatActivity"
+122-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:39:19-58
+123            android:exported="false" />
+123-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:40:13-37
+124        <activity
+124-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:41:9-87
+125            android:name="com.example.feesmanager.StudentQueriesActivity"
+125-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:41:19-57
+126            android:exported="false" />
+126-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:41:60-84
+127
+128        <!-- AI Assistant -->
+129
+130        <activity
+130-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:45:9-47:57
+131            android:name="com.example.feesmanager.TeacherAiActivity"
+131-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:45:19-52
+132            android:exported="false"
+132-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:46:13-37
+133            android:windowSoftInputMode="adjustResize" />
+133-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:47:13-55
+134
+135        <!-- Advance -->
+136        <activity
+136-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:50:9-87
+137            android:name="com.example.feesmanager.AdvanceStudentsActivity"
+137-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:50:19-58
+138            android:exported="false" />
+138-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:50:60-84
+139        <activity
+139-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:51:9-87
+140            android:name="com.example.feesmanager.AdvancePaymentActivity"
+140-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:51:19-57
+141            android:exported="false" />
+141-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:51:60-84
+142
+143        <!-- Student join & approval -->
+144        <activity
+144-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:54:9-93
+145            android:name="com.example.feesmanager.StudentPendingApprovalActivity"
+145-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:54:19-65
+146            android:exported="false" />
+146-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:54:66-90
+147
+148        <!-- Language / Settings -->
+149        <activity
+149-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:57:9-86
+150            android:name="com.example.feesmanager.LanguageSelectActivity"
+150-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:57:19-57
+151            android:exported="false" />
+151-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:57:59-83
+152        <activity
+152-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:58:9-86
+153            android:name="com.example.feesmanager.SettingsActivity"
+153-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:58:19-51
+154            android:exported="false" />
+154-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:58:59-83
+155        <activity
+155-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:59:9-89
+156            android:name="com.example.feesmanager.RazorpayOnboardingActivity"
+156-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:59:19-61
+157            android:exported="false" />
+157-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:59:62-86
+158        <!-- Cashfree payment setup screen (NEW — active when AppPaymentConfig.isCashfree) -->
+159        <activity
+159-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:61:9-89
+160            android:name="com.example.feesmanager.CashfreeOnboardingActivity"
+160-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:61:19-61
+161            android:exported="false" />
+161-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:61:62-86
+162
+163        <!-- Auth -->
+164        <activity
+164-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:64:9-86
+165            android:name="com.example.feesmanager.RoleSelectActivity"
+165-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:64:19-53
+166            android:exported="false" />
+166-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:64:59-83
+167        <activity
+167-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:65:9-86
+168            android:name="com.example.feesmanager.MainActivity"
+168-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:65:19-47
+169            android:exported="false" />
+169-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:65:59-83
+170        <activity
+170-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:66:9-86
+171            android:name="com.example.feesmanager.SetupProfileActivity"
+171-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:66:19-55
+172            android:exported="false" />
+172-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:66:59-83
+173
+174        <!-- Teacher -->
+175        <activity
+175-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:69:9-86
+176            android:name="com.example.feesmanager.DashboardActivity"
+176-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:69:19-52
+177            android:exported="false" />
+177-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:69:59-83
+178        <activity
+178-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:70:9-86
+179            android:name="com.example.feesmanager.AddStudentActivity"
+179-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:70:19-53
+180            android:exported="false" />
+180-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:70:59-83
+181        <activity
+181-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:71:9-86
+182            android:name="com.example.feesmanager.ViewStudentsActivity"
+182-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:71:19-55
+183            android:exported="false" />
+183-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:71:59-83
+184        <activity
+184-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:72:9-86
+185            android:name="com.example.feesmanager.StudentProfileActivity"
+185-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:72:19-57
+186            android:exported="false" />
+186-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:72:59-83
+187        <activity
+187-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:73:9-86
+188            android:name="com.example.feesmanager.EditStudentActivity"
+188-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:73:19-54
+189            android:exported="false" />
+189-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:73:59-83
+190        <activity
+190-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:74:9-86
+191            android:name="com.example.feesmanager.FeesEntryActivity"
+191-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:74:19-52
+192            android:exported="false" />
+192-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:74:59-83
+193        <activity
+193-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:75:9-86
+194            android:name="com.example.feesmanager.PaymentRequestsActivity"
+194-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:75:19-58
+195            android:exported="false" />
+195-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:75:59-83
+196        <activity
+196-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:76:9-86
+197            android:name="com.example.feesmanager.PendingStudentsActivity"
+197-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:76:19-58
+198            android:exported="false" />
+198-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:76:59-83
+199        <activity
+199-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:77:9-79:57
+200            android:name="com.example.feesmanager.SetClassFeesActivity"
+200-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:77:19-55
+201            android:exported="false"
+201-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:78:13-37
+202            android:windowSoftInputMode="adjustResize" />
+202-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:79:13-55
+203        <activity
+203-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:80:9-86
+204            android:name="com.example.feesmanager.ReceiptActivity"
+204-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:80:19-50
+205            android:exported="false" />
+205-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:80:59-83
+206        <activity
+206-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:81:9-86
+207            android:name="com.example.feesmanager.AnalyticsActivity"
+207-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:81:19-52
+208            android:exported="false" />
+208-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:81:59-83
+209        <activity
+209-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:82:9-86
+210            android:name="com.example.feesmanager.AttendanceActivity"
+210-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:82:19-53
+211            android:exported="false" />
+211-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:82:59-83
+212        <activity
+212-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:83:9-86
+213            android:name="com.example.feesmanager.BackupActivity"
+213-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:83:19-49
+214            android:exported="false" />
+214-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:83:59-83
+215        <activity
+215-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:84:9-86
+216            android:name="com.example.feesmanager.AnnouncementsActivity"
+216-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:84:19-56
+217            android:exported="false" />
+217-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:84:59-83
+218
+219        <!-- Student -->
+220        <activity
+220-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:87:9-87
+221            android:name="com.example.feesmanager.StudentDashboardActivity"
+221-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:87:19-59
+222            android:exported="false" />
+222-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:87:60-84
+223        <activity
+223-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:88:9-86
+224            android:name="com.example.feesmanager.StudentLoginActivity"
+224-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:88:19-55
+225            android:exported="false" />
+225-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:88:59-83
+226        <activity
+226-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:89:9-86
+227            android:name="com.example.feesmanager.StudentSignupActivity"
+227-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:89:19-56
+228            android:exported="false" />
+228-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:89:59-83
+229        <activity
+229-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:90:9-86
+230            android:name="com.example.feesmanager.StudentJoinActivity"
+230-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:90:19-54
+231            android:exported="false" />
+231-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:90:59-83
+232        <activity
+232-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:91:9-92:57
+233            android:name="com.example.feesmanager.StudentFaqActivity"
+233-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:91:19-53
+234            android:exported="false"
+234-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:91:59-83
+235            android:windowSoftInputMode="adjustResize" />
+235-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:92:13-55
+236        <activity
+236-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:93:9-86
+237            android:name="com.example.feesmanager.PayFeesActivity"
+237-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:93:19-50
+238            android:exported="false" />
+238-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:93:59-83
+239        <activity
+239-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:94:9-86
+240            android:name="com.example.feesmanager.HistoryActivity"
+240-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:94:19-50
+241            android:exported="false" />
+241-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:94:59-83
+242        <activity
+242-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:95:9-86
+243            android:name="com.example.feesmanager.FeeCalendarActivity"
+243-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:95:19-54
+244            android:exported="false" />
+244-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:95:59-83
+245        <activity
+245-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:96:9-86
+246            android:name="com.example.feesmanager.MultiAcademyActivity"
+246-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:96:19-55
+247            android:exported="false" />
+247-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:96:59-83
+248
+249        <!-- Razorpay -->
+250        <activity
+250-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:99:9-105:36
+251            android:name="com.razorpay.CheckoutActivity"
+251-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:99:19-63
+252            android:configChanges="keyboard|keyboardHidden|orientation|uiMode|screenLayout|screenSize|smallestScreenSize"
+252-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:100:13-122
+253            android:exported="false"
+253-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:101:13-37
+254            android:hardwareAccelerated="true"
+254-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:102:13-47
+255            android:screenOrientation="portrait"
+255-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:103:13-49
+256            android:theme="@style/Theme.MaterialComponents.Light.Dialog" />
+256-->C:\Users\Asus\Desktop\FinalProject\FeesManager_v8\FeesManager_v8\app\src\main\AndroidManifest.xml:104:13-73
+257
+258        <!-- FCM: Stubbed — NotificationHelper handles logging. Service class removed. -->
+259        <provider
+259-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:8:9-11:40
+260            android:name="com.cashfree.pg.api.CashfreeCoreContentProvider"
+260-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:9:13-75
+261            android:authorities="com.example.feesmanager.cashfreecorecontentprovider"
+261-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:10:13-79
+262            android:exported="false" />
+262-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:11:13-37
+263
+264        <meta-data
+264-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:13:9-15:78
+265            android:name="cashfree_pg_core_auto_initialization_enabled"
+265-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:14:13-72
+266            android:value="@bool/cashfree_pg_core_auto_initialize_enabled" />
+266-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:15:13-75
+267        <meta-data
+267-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:16:9-18:72
+268            android:name="cashfree_pg_core_reporting_enabled"
+268-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:17:13-62
+269            android:value="@bool/cashfree_pg_core_reporting_enabled" />
+269-->[com.cashfree.pg:api:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\4ad4d54fb016617981ab16b9e9e9e582\transformed\api-2.2.8\AndroidManifest.xml:18:13-69
+270
+271        <activity
+271-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:15:9-35:20
+272            android:name="com.cashfree.pg.ui.hidden.checkout.CashfreeNativeCheckoutActivity"
+272-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:16:13-93
+273            android:exported="false"
+273-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:17:13-37
+274            android:launchMode="singleTop"
+274-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:18:13-43
+275            android:screenOrientation="portrait"
+275-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:19:13-49
+276            android:theme="@style/CFUITheme"
+276-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:20:13-45
+277            android:windowSoftInputMode="adjustPan" >
+277-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:21:13-52
+278            <intent-filter>
+278-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:22:13-26:29
+279                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+279-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:23:17-77
+279-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:23:25-74
+280
+281                <category android:name="android.intent.category.DEFAULT" />
+281-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:25:17-76
+281-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:25:27-73
+282            </intent-filter>
+283            <intent-filter>
+283-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:27:13-31:29
+284                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+284-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:28:17-76
+284-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:28:25-73
+285
+286                <category android:name="android.intent.category.DEFAULT" />
+286-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:25:17-76
+286-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:25:27-73
+287            </intent-filter>
+288            <intent-filter>
+288-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:32:13-34:29
+289                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+289-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:33:17-77
+289-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:33:25-74
+290            </intent-filter>
+291        </activity>
+292        <activity
+292-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:36:9-40:54
+293            android:name="com.cashfree.pg.ui.hidden.seamless.CFDropSeamlessActivity"
+293-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:37:13-85
+294            android:exported="false"
+294-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:38:13-37
+295            android:launchMode="singleTop"
+295-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:39:13-43
+296            android:theme="@style/CFSeamlessStyle" />
+296-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:40:13-51
+297
+298        <meta-data
+298-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:40:9-42:36
+299            android:name="android.webkit.WebView.EnableSafeBrowsing"
+299-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:41:13-69
+300            android:value="true" />
+300-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:42:13-33
+301
+302        <activity
+302-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:44:9-48:53
+303            android:name="com.cashfree.pg.core.api.ui.CFCoreUPIPaymentActivity"
+303-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:45:13-80
+304            android:exported="false"
+304-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:46:13-37
+305            android:launchMode="singleTop"
+305-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:47:13-43
+306            android:theme="@style/CFCoreUPIStyle" />
+306-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:48:13-50
+307        <activity
+307-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:49:9-53:53
+308            android:name="com.cashfree.pg.core.api.ui.CFCoreModalActivity"
+308-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:50:13-75
+309            android:exported="false"
+309-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:51:13-37
+310            android:launchMode="singleTop"
+310-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:52:13-43
+311            android:theme="@style/CFCoreUPIStyle" />
+311-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:53:13-50
+312        <activity
+312-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:54:9-59:50
+313            android:name="com.cashfree.pg.core.api.ui.CashfreeCoreNativeVerificationActivity"
+313-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:55:13-94
+314            android:exported="false"
+314-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:56:13-37
+315            android:launchMode="singleTop"
+315-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:57:13-43
+316            android:screenOrientation="portrait"
+316-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:58:13-49
+317            android:theme="@style/CFCoreTheme" />
+317-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:59:13-47
+318        <activity
+318-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:60:9-65:50
+319            android:name="com.cashfree.pg.core.api.ui.CashfreeSubscriptionCheckoutActivity"
+319-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:61:13-92
+320            android:exported="false"
+320-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:62:13-37
+321            android:launchMode="singleTop"
+321-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:63:13-43
+322            android:screenOrientation="portrait"
+322-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:64:13-49
+323            android:theme="@style/CFCoreTheme" />
+323-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:65:13-47
+324        <activity
+324-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:66:9-70:57
+325            android:name="com.cashfree.pg.core.api.ui.CashfreeWebCheckoutActivity"
+325-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:67:13-83
+326            android:exported="false"
+326-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:68:13-37
+327            android:launchMode="singleTop"
+327-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:69:13-43
+328            android:theme="@style/CFWebCheckoutStyle" />
+328-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:70:13-54
+329
+330        <meta-data
+330-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:72:9-74:66
+331            android:name="cashfree_pg_logging_level"
+331-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:73:13-53
+332            android:value="@integer/cashfree_pg_logging_level" />
+332-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:74:13-63
+333        <meta-data
+333-->[com.cashfree.pg:analytics:1.0.19] C:\Users\Asus\.gradle\caches\8.13\transforms\00163ce0ca25ad71ad7a0187dd89c22d\transformed\analytics-1.0.19\AndroidManifest.xml:18:9-20:82
+334            android:name="cashfree_custom_analytics_subscriber_enabled"
+334-->[com.cashfree.pg:analytics:1.0.19] C:\Users\Asus\.gradle\caches\8.13\transforms\00163ce0ca25ad71ad7a0187dd89c22d\transformed\analytics-1.0.19\AndroidManifest.xml:19:13-72
+335            android:value="@bool/cashfree_custom_analytics_subscriber_enabled" />
+335-->[com.cashfree.pg:analytics:1.0.19] C:\Users\Asus\.gradle\caches\8.13\transforms\00163ce0ca25ad71ad7a0187dd89c22d\transformed\analytics-1.0.19\AndroidManifest.xml:20:13-79
+336        <meta-data
+336-->[com.cashfree.pg:base:1.0.4] C:\Users\Asus\.gradle\caches\8.13\transforms\72d96b8d5fbdda2166dcebb285193765\transformed\base-1.0.4\AndroidManifest.xml:13:9-15:75
+337            android:name="cashfree_pg_core_encrypt_pref_enabled"
+337-->[com.cashfree.pg:base:1.0.4] C:\Users\Asus\.gradle\caches\8.13\transforms\72d96b8d5fbdda2166dcebb285193765\transformed\base-1.0.4\AndroidManifest.xml:14:13-65
+338            android:value="@bool/cashfree_pg_core_encrypt_pref_enabled" />
+338-->[com.cashfree.pg:base:1.0.4] C:\Users\Asus\.gradle\caches\8.13\transforms\72d96b8d5fbdda2166dcebb285193765\transformed\base-1.0.4\AndroidManifest.xml:15:13-72
+339
+340        <provider
+340-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:52:9-63:20
+341            android:name="androidx.startup.InitializationProvider"
+341-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:53:13-67
+342            android:authorities="com.example.feesmanager.androidx-startup"
+342-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:54:13-68
+343            android:exported="false" >
+343-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:55:13-37
+344            <meta-data
+344-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:57:13-59:52
+345                android:name="com.razorpay.RazorpayInitializer"
+345-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:58:17-64
+346                android:value="androidx.startup" />
+346-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:59:17-49
+347            <meta-data
+347-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:60:13-62:52
+348                android:name="com.razorpay.CoreInitializer"
+348-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:61:17-60
+349                android:value="androidx.startup" />
+349-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:62:17-49
+350            <meta-data
+350-->[io.github.jan-tennert.supabase:storage-kt-android:3.4.1] C:\Users\Asus\.gradle\caches\8.13\transforms\da194ed0530fb7821801df30c9fcdb8d\transformed\storage-kt\AndroidManifest.xml:14:13-16:52
+351                android:name="io.github.jan.supabase.storage.SupabaseInitializer"
+351-->[io.github.jan-tennert.supabase:storage-kt-android:3.4.1] C:\Users\Asus\.gradle\caches\8.13\transforms\da194ed0530fb7821801df30c9fcdb8d\transformed\storage-kt\AndroidManifest.xml:15:17-82
+352                android:value="androidx.startup" />
+352-->[io.github.jan-tennert.supabase:storage-kt-android:3.4.1] C:\Users\Asus\.gradle\caches\8.13\transforms\da194ed0530fb7821801df30c9fcdb8d\transformed\storage-kt\AndroidManifest.xml:16:17-49
+353            <meta-data
+353-->[io.github.jan-tennert.supabase:auth-kt-android:3.4.1] C:\Users\Asus\.gradle\caches\8.13\transforms\713728cbedd213c2dad48f4afa25f763\transformed\auth-kt\AndroidManifest.xml:14:13-16:52
+354                android:name="io.github.jan.supabase.auth.SupabaseInitializer"
+354-->[io.github.jan-tennert.supabase:auth-kt-android:3.4.1] C:\Users\Asus\.gradle\caches\8.13\transforms\713728cbedd213c2dad48f4afa25f763\transformed\auth-kt\AndroidManifest.xml:15:17-79
+355                android:value="androidx.startup" />
+355-->[io.github.jan-tennert.supabase:auth-kt-android:3.4.1] C:\Users\Asus\.gradle\caches\8.13\transforms\713728cbedd213c2dad48f4afa25f763\transformed\auth-kt\AndroidManifest.xml:16:17-49
+356            <meta-data
+356-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\fbaa8251161a99be840fcfdedb26431d\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+357                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+357-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\fbaa8251161a99be840fcfdedb26431d\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+358                android:value="androidx.startup" />
+358-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\fbaa8251161a99be840fcfdedb26431d\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+359            <meta-data
+359-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\Asus\.gradle\caches\8.13\transforms\0b916dc8518cd311ed455a55f0fc39ea\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:29:13-31:52
+360                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+360-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\Asus\.gradle\caches\8.13\transforms\0b916dc8518cd311ed455a55f0fc39ea\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:30:17-78
+361                android:value="androidx.startup" />
+361-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\Asus\.gradle\caches\8.13\transforms\0b916dc8518cd311ed455a55f0fc39ea\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:31:17-49
+362            <meta-data
+362-->[com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\6fabe957feef10a7a0e8508493c53907\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:29:13-31:52
+363                android:name="com.russhwolf.settings.SettingsInitializer"
+363-->[com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\6fabe957feef10a7a0e8508493c53907\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:30:17-74
+364                android:value="androidx.startup" />
+364-->[com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\6fabe957feef10a7a0e8508493c53907\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:31:17-49
+365            <meta-data
+365-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+366                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+366-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+367                android:value="androidx.startup" />
+367-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+368        </provider>
+369
+370        <activity
+370-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:65:9-68:75
+371            android:name="com.razorpay.MagicXActivity"
+371-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:66:13-55
+372            android:exported="false"
+372-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:67:13-37
+373            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+373-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:68:13-72
+374        <activity
+374-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:23:9-27:75
+375            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+375-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:24:13-93
+376            android:excludeFromRecents="true"
+376-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:25:13-46
+377            android:exported="false"
+377-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:26:13-37
+378            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+378-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:27:13-72
+379        <!--
+380            Service handling Google Sign-In user revocation. For apps that do not integrate with
+381            Google Sign-In, this service will never be started.
+382        -->
+383        <service
+383-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:33:9-37:51
+384            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+384-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:34:13-89
+385            android:exported="true"
+385-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:35:13-36
+386            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+386-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:36:13-107
+387            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
+387-->[com.google.android.gms:play-services-auth:21.2.0] C:\Users\Asus\.gradle\caches\8.13\transforms\b7532b466760465a1cbb3979b242a868\transformed\play-services-auth-21.2.0\AndroidManifest.xml:37:13-48
+388        <uses-library
+388-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Asus\.gradle\caches\8.13\transforms\672a2fb963a90a95b9a97f3a30b7e346\transformed\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+389            android:name="org.apache.http.legacy"
+389-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Asus\.gradle\caches\8.13\transforms\672a2fb963a90a95b9a97f3a30b7e346\transformed\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+390            android:required="false" />
+390-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Asus\.gradle\caches\8.13\transforms\672a2fb963a90a95b9a97f3a30b7e346\transformed\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+391
+392        <activity
+392-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\ef8a553ee4ba7540635267957f178f18\transformed\play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
+393            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+393-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\ef8a553ee4ba7540635267957f178f18\transformed\play-services-base-18.3.0\AndroidManifest.xml:20:19-85
+394            android:exported="false"
+394-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\ef8a553ee4ba7540635267957f178f18\transformed\play-services-base-18.3.0\AndroidManifest.xml:22:19-43
+395            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+395-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\ef8a553ee4ba7540635267957f178f18\transformed\play-services-base-18.3.0\AndroidManifest.xml:21:19-78
+396
+397        <meta-data
+397-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\317011757934c06548982cda55dc58a8\transformed\play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+398            android:name="com.google.android.gms.version"
+398-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\317011757934c06548982cda55dc58a8\transformed\play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+399            android:value="@integer/google_play_services_version" />
+399-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Asus\.gradle\caches\8.13\transforms\317011757934c06548982cda55dc58a8\transformed\play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+400
+401        <receiver
+401-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+402            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+402-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+403            android:directBootAware="false"
+403-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+404            android:enabled="true"
+404-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+405            android:exported="true"
+405-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+406            android:permission="android.permission.DUMP" >
+406-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+407            <intent-filter>
+407-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+408                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+408-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+408-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+409            </intent-filter>
+410            <intent-filter>
+410-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+411                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+411-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+411-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+412            </intent-filter>
+413            <intent-filter>
+413-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+414                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+414-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+414-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+415            </intent-filter>
+416            <intent-filter>
+416-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+417                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+417-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+417-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Asus\.gradle\caches\8.13\transforms\3abdd673886bc95ee15be8adf5d12b29\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+418            </intent-filter>
+419        </receiver>
+420
+421        <activity
+421-->[com.razorpay:core:1.0.13] C:\Users\Asus\.gradle\caches\8.13\transforms\25ab151ab718ccf8bd0152abc0fc88c8\transformed\core-1.0.13\AndroidManifest.xml:13:9-27:20
+422            android:name="com.razorpay.DeeplinkActivity"
+422-->[com.razorpay:core:1.0.13] C:\Users\Asus\.gradle\caches\8.13\transforms\25ab151ab718ccf8bd0152abc0fc88c8\transformed\core-1.0.13\AndroidManifest.xml:14:13-57
+423            android:exported="true"
+423-->[com.razorpay:core:1.0.13] C:\Users\Asus\.gradle\caches\8.13\transforms\25ab151ab718ccf8bd0152abc0fc88c8\transformed\core-1.0.13\AndroidManifest.xml:15:13-36
+424            android:theme="@style/CheckoutTheme" >
+424-->[com.razorpay:core:1.0.13] C:\Users\Asus\.gradle\caches\8.13\transforms\25ab151ab718ccf8bd0152abc0fc88c8\transformed\core-1.0.13\AndroidManifest.xml:16:13-49
+425            <intent-filter>
+425-->[com.razorpay:core:1.0.13] C:\Users\Asus\.gradle\caches\8.13\transforms\25ab151ab718ccf8bd0152abc0fc88c8\transformed\core-1.0.13\AndroidManifest.xml:17:13-26:29
+426                <action android:name="android.intent.action.VIEW" />
+426-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:13-65
+426-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:20:21-62
+427
+428                <category android:name="android.intent.category.DEFAULT" />
+428-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:25:17-76
+428-->[com.cashfree.pg:ui:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\93de00523e4765b0b3b2e76e2632b24c\transformed\ui-2.2.8\AndroidManifest.xml:25:27-73
+429                <category android:name="android.intent.category.BROWSABLE" />
+429-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:21:13-74
+429-->[com.razorpay:standard-core:1.7.12] C:\Users\Asus\.gradle\caches\8.13\transforms\adf4a9d9fca13c3d1ff610eb9045dcaf\transformed\standard-core-1.7.12\AndroidManifest.xml:21:23-71
+430
+431                <data
+431-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:22:13-24:40
+432                    android:host="com.example.feesmanager"
+432-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:23:17-35
+433                    android:scheme="razorpay" />
+433-->[com.cashfree.pg:core:2.2.8] C:\Users\Asus\.gradle\caches\8.13\transforms\a796b0296e66afce8556405499b27856\transformed\core-2.2.8\AndroidManifest.xml:24:17-37
+434            </intent-filter>
+435        </activity> <!-- The activities will be merged into the manifest of the hosting app. -->
+436        <activity
+436-->[com.google.android.play:core-common:2.0.3] C:\Users\Asus\.gradle\caches\8.13\transforms\1015de75706a66bff55efb7c0b3bc500\transformed\core-common-2.0.3\AndroidManifest.xml:14:9-18:65
+437            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+437-->[com.google.android.play:core-common:2.0.3] C:\Users\Asus\.gradle\caches\8.13\transforms\1015de75706a66bff55efb7c0b3bc500\transformed\core-common-2.0.3\AndroidManifest.xml:15:13-93
+438            android:exported="false"
+438-->[com.google.android.play:core-common:2.0.3] C:\Users\Asus\.gradle\caches\8.13\transforms\1015de75706a66bff55efb7c0b3bc500\transformed\core-common-2.0.3\AndroidManifest.xml:16:13-37
+439            android:stateNotNeeded="true"
+439-->[com.google.android.play:core-common:2.0.3] C:\Users\Asus\.gradle\caches\8.13\transforms\1015de75706a66bff55efb7c0b3bc500\transformed\core-common-2.0.3\AndroidManifest.xml:17:13-42
+440            android:theme="@style/Theme.PlayCore.Transparent" />
+440-->[com.google.android.play:core-common:2.0.3] C:\Users\Asus\.gradle\caches\8.13\transforms\1015de75706a66bff55efb7c0b3bc500\transformed\core-common-2.0.3\AndroidManifest.xml:18:13-62
+441    </application>
+442
+443</manifest>

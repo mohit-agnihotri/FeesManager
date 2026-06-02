@@ -1,0 +1,22 @@
+<!-- res/drawable/ic_default_avatar.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="52dp"
+    android:height="52dp"
+    android:viewportWidth="52"
+    android:viewportHeight="52">
+
+    <!-- Circle background -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M26,0A26,26 0,1 1,26 52A26,26 0,1 1,26 0Z"/>
+
+    <!-- Head circle -->
+    <path
+        android:fillColor="#64748B"
+        android:pathData="M26,14m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0"/>
+
+    <!-- Shoulders arc -->
+    <path
+        android:fillColor="#64748B"
+        android:pathData="M12,42 Q12,30 26,30 Q40,30 40,42 Z"/>
+</vector>

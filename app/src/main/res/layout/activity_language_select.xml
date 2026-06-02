@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_gradient_main"
+    android:orientation="vertical" android:gravity="center"
+    android:paddingLeft="28dp" android:paddingRight="28dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView android:text="🌍" android:textSize="56sp" android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <TextView android:text="@string/choose_language"
+        android:textSize="24sp" android:textStyle="bold" android:textColor="#F1F5F9"
+        android:gravity="center" android:layout_marginBottom="6dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <TextView android:text="भाषा चुनें" android:textSize="15sp"
+        android:textColor="#94A3B8" android:gravity="center" android:layout_marginBottom="36dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <!-- English Card -->
+    <LinearLayout android:id="@+id/btnEnglish" android:orientation="horizontal"
+        android:background="@drawable/bg_card_modern" android:padding="18dp"
+        android:gravity="center_vertical" android:layout_marginBottom="14dp"
+        android:clickable="true" android:focusable="true"
+        android:minHeight="72dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:text="🇬🇧" android:textSize="28sp" android:layout_marginEnd="14dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="vertical" android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="wrap_content">
+            <TextView android:text="English" android:textColor="#F1F5F9"
+                android:textSize="17sp" android:textStyle="bold" android:maxLines="1"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:text="Continue in English" android:textColor="#94A3B8"
+                android:textSize="12sp" android:maxLines="1"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:id="@+id/checkEnglish" android:text="✓"
+            android:textColor="#6366F1" android:textSize="22sp" android:visibility="gone"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Hindi Card -->
+    <LinearLayout android:id="@+id/btnHindi" android:orientation="horizontal"
+        android:background="@drawable/bg_card_modern" android:padding="18dp"
+        android:gravity="center_vertical" android:layout_marginBottom="36dp"
+        android:clickable="true" android:focusable="true"
+        android:minHeight="72dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:text="🇮🇳" android:textSize="28sp" android:layout_marginEnd="14dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="vertical" android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="wrap_content">
+            <TextView android:text="हिंदी (Hindi)" android:textColor="#F1F5F9"
+                android:textSize="17sp" android:textStyle="bold" android:maxLines="1"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:text="हिंदी में जारी रखें" android:textColor="#94A3B8"
+                android:textSize="12sp" android:maxLines="1"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:id="@+id/checkHindi" android:text="✓"
+            android:textColor="#6366F1" android:textSize="22sp" android:visibility="gone"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <Button android:id="@+id/btnContinue" android:text="@string/continue_btn"
+        android:textAllCaps="false" android:textColor="#fff" android:textSize="16sp"
+        android:textStyle="bold" android:background="@drawable/ripple_indigo"
+        android:stateListAnimator="@null"
+        android:layout_width="match_parent" android:layout_height="56dp"/>
+</LinearLayout>

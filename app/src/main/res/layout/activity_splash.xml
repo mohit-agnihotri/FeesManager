@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_gradient_main"
+    android:orientation="vertical" android:gravity="center"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView android:text="🏫" android:textSize="80sp" android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <TextView android:text="@string/app_name" android:textSize="28sp"
+        android:textStyle="bold" android:textColor="#F1F5F9" android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <TextView android:text="@string/tagline" android:textSize="14sp"
+        android:textColor="#94A3B8" android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <ProgressBar android:id="@+id/splashProgress"
+        android:layout_marginTop="48dp"
+        android:layout_width="48dp" android:layout_height="48dp"/>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0A0F1E" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/bg_header_dark"
+        android:padding="16dp" android:gravity="center_vertical"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@+id/tvTitle" android:text="📢 Announcements"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#F1F5F9"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <!-- Teacher input section -->
+    <LinearLayout android:id="@+id/inputLayout" android:orientation="vertical"
+        android:padding="16dp" android:background="#0A0F1E" android:visibility="gone"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:id="@+id/etMessage" android:hint="Write announcement..."
+            android:textColor="#F1F5F9" android:textColorHint="#475569"
+            android:background="@drawable/bg_input_modern" android:padding="14dp"
+            android:minHeight="80dp" android:gravity="top" android:inputType="textMultiLine"
+            android:layout_marginBottom="10dp" android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnPost" android:text="📢 Post Announcement"
+            android:textAllCaps="false" android:textColor="#fff" android:textSize="15sp"
+            android:backgroundTint="#6366F1" android:stateListAnimator="@null"
+            android:layout_width="match_parent" android:layout_height="50dp"/>
+    </LinearLayout>
+    <View android:background="@drawable/bg_card_modern" android:layout_width="match_parent" android:layout_height="1dp"/>
+    <ScrollView android:layout_weight="1" android:layout_width="match_parent" android:layout_height="0dp">
+        <LinearLayout android:id="@+id/listLayout" android:orientation="vertical"
+            android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

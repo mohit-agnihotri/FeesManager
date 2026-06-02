@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0A0F1E" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <!-- Header -->
+    <LinearLayout android:orientation="horizontal"
+        android:background="@drawable/bg_header_dark"
+        android:paddingLeft="20dp" android:paddingRight="20dp"
+        android:paddingTop="20dp" android:paddingBottom="20dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:text="📜 Payment History"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#F1F5F9"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <!-- ID matches HistoryActivity.kt: listHistory -->
+        <LinearLayout android:id="@+id/listHistory" android:orientation="vertical"
+            android:paddingLeft="16dp" android:paddingRight="16dp"
+            android:paddingTop="8dp" android:paddingBottom="24dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

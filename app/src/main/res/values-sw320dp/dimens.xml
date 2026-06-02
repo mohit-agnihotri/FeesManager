@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tile_min_height">76dp</dimen>
+    <dimen name="tile_icon_size">22sp</dimen>
+    <dimen name="tile_label_size">11sp</dimen>
+    <dimen name="text_xl">18sp</dimen>
+    <dimen name="text_2xl">21sp</dimen>
+    <dimen name="screen_padding">12dp</dimen>
+    <dimen name="btn_height">52dp</dimen>
+    <dimen name="input_height">52dp</dimen>
+</resources>

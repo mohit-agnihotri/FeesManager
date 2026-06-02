@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/bg_circle_avatar.xml
+     Circular border that wraps the avatar ImageView in the header.
+     The indigo stroke matches the app accent colour (#6366F1). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#1E293B"/>
+    <stroke android:width="2dp" android:color="#6366F1"/>
+</shape>

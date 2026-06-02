@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0A0F1E"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@drawable/bg_header_dark"
+            android:padding="16dp" android:gravity="center_vertical"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:text="➕ Add Student"
+                android:textSize="20sp" android:textStyle="bold" android:textColor="#F1F5F9"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout android:orientation="vertical" android:padding="20dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <!-- Join Code Card -->
+            <LinearLayout android:background="@drawable/bg_card_modern"
+                android:orientation="vertical" android:padding="16dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:text="🔑 Academy Join Code"
+                    android:textColor="#94A3B8" android:textSize="12sp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvJoinCodeDisplay"
+                    android:text="Join Code: Loading..."
+                    android:textColor="#6366F1" android:textSize="22sp" android:textStyle="bold"
+                    android:layout_marginBottom="12dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:orientation="horizontal"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <Button android:id="@+id/btnRegenCode"
+                        android:text="🔄 Regenerate"
+                        android:textAllCaps="false" android:textSize="13sp"
+                        android:textColor="#F1F5F9"
+                        android:backgroundTint="#374151"
+                        android:stateListAnimator="@null"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp" android:layout_height="40dp"/>
+                    <Button android:id="@+id/btnShareCode"
+                        android:text="📤 Share Code"
+                        android:textAllCaps="false" android:textSize="13sp"
+                        android:textColor="#fff"
+                        android:backgroundTint="#6366F1"
+                        android:stateListAnimator="@null"
+                        android:layout_weight="1"
+                        android:layout_width="0dp" android:layout_height="40dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Divider -->
+            <TextView android:text="— OR add student manually —"
+                android:textColor="#475569" android:textSize="12sp"
+                android:gravity="center" android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+            <TextView android:text="Student Name" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/etName" android:hint="Full name"
+                android:textColor="#F1F5F9" android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern" android:padding="14dp"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <TextView android:text="Class" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/etClass" android:hint="e.g. 10, 11, 12"
+                android:textColor="#F1F5F9" android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern" android:padding="14dp"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <TextView android:text="WhatsApp Number" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/etWhatsapp" android:hint="10-digit number"
+                android:textColor="#F1F5F9" android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern" android:padding="14dp"
+                android:inputType="phone"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <TextView android:text="Monthly Fee (₹) — optional, uses class default if blank"
+                android:textColor="#94A3B8" android:textSize="13sp" android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/etFee" android:hint="e.g. 1500"
+                android:textColor="#F1F5F9" android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern" android:padding="14dp"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="24dp"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+            <Button android:id="@+id/btnAdd"
+                android:text="➕ Add Student"
+                android:textAllCaps="false" android:textColor="#fff" android:textSize="16sp"
+                android:backgroundTint="#6366F1" android:stateListAnimator="@null"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

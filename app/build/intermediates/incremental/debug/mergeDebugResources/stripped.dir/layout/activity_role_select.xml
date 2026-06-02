@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_gradient_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Hero Section -->
+    <LinearLayout android:orientation="vertical" android:gravity="center"
+        android:layout_weight="1" android:paddingLeft="32dp" android:paddingRight="32dp"
+        android:layout_width="match_parent" android:layout_height="0dp">
+
+        <TextView android:text="🏫" android:textSize="72sp" android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Fees Manager Pro"
+            android:textSize="28sp" android:textStyle="bold" android:textColor="#F1F5F9"
+            android:gravity="center" android:layout_marginBottom="8dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Smart fee management for modern academies"
+            android:textSize="14sp" android:textColor="#64748B" android:gravity="center"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <!-- Version pill -->
+        <LinearLayout android:orientation="horizontal" android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:text="  v4.0 • Secured  " android:textColor="#818CF8"
+                android:textSize="11sp" android:background="@drawable/bg_pill"
+                android:paddingTop="4dp" android:paddingBottom="4dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Role Cards -->
+    <LinearLayout android:orientation="vertical" android:paddingLeft="24dp"
+        android:paddingRight="24dp" android:paddingBottom="32dp" android:paddingTop="8dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView android:text="CHOOSE YOUR ROLE" android:textColor="#475569"
+            android:textSize="11sp" android:letterSpacing="0.15" android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <!-- Teacher Card -->
+        <LinearLayout android:id="@+id/btnTeacher" android:orientation="horizontal"
+            android:background="@drawable/bg_card_modern" android:padding="20dp"
+            android:gravity="center_vertical" android:layout_marginBottom="12dp"
+            android:clickable="true" android:focusable="true"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="@dimen/tile_min_height">
+
+            <LinearLayout android:orientation="vertical" android:gravity="center"
+                android:background="@drawable/bg_card_indigo"
+                android:layout_marginEnd="16dp" android:padding="10dp"
+                android:layout_width="48dp" android:layout_height="48dp">
+                <TextView android:text="👨‍🏫" android:textSize="22sp" android:gravity="center"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_weight="1"
+                android:layout_width="0dp" android:layout_height="wrap_content">
+                <TextView android:text="I am a Teacher" android:textColor="#F1F5F9"
+                    android:textSize="16sp" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="Manage students &amp; collect fees"
+                    android:textColor="#64748B" android:textSize="12sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView android:text="›" android:textColor="#6366F1" android:textSize="28sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Student Card -->
+        <LinearLayout android:id="@+id/btnStudent" android:orientation="horizontal"
+            android:background="@drawable/bg_card_modern" android:padding="20dp"
+            android:gravity="center_vertical" android:layout_marginBottom="24dp"
+            android:clickable="true" android:focusable="true"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="@dimen/tile_min_height">
+
+            <LinearLayout android:orientation="vertical" android:gravity="center"
+                android:background="@drawable/bg_card_green"
+                android:layout_marginEnd="16dp" android:padding="10dp"
+                android:layout_width="48dp" android:layout_height="48dp">
+                <TextView android:text="🎓" android:textSize="22sp" android:gravity="center"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_weight="1"
+                android:layout_width="0dp" android:layout_height="wrap_content">
+                <TextView android:text="I am a Student" android:textColor="#F1F5F9"
+                    android:textSize="16sp" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="View fees &amp; make payments"
+                    android:textColor="#64748B" android:textSize="12sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView android:text="›" android:textColor="#22C55E" android:textSize="28sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView android:text="🔒 End-to-end encrypted • Firebase secured"
+            android:textColor="#334155" android:textSize="11sp" android:gravity="center"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

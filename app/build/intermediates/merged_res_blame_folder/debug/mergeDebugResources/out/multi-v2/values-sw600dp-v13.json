@@ -1,0 +1,91 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.feesmanager.app-mergeDebugResources-54:/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\8.13\\transforms\\67102caef09ddbf695f4405e8eef3323\\transformed\\material-1.12.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,115,185,256,328,386,444,553,617,673,732,795",
+                        "endLines": "2,3,4,5,6,7,9,10,11,12,13,17",
+                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
+                        "endOffsets": "110,180,251,323,381,439,548,612,668,727,790,962"
+                    },
+                    "to": {
+                        "startLines": "14,15,16,17,18,19,20,22,24,25,35,49",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "790,850,920,991,1063,1121,1179,1288,1396,1452,1901,2747",
+                        "endLines": "14,15,16,17,18,19,21,22,24,25,35,52",
+                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
+                        "endOffsets": "845,915,986,1058,1116,1174,1283,1347,1447,1506,1959,2914"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\8.13\\transforms\\93de00523e4765b0b3b2e76e2632b24c\\transformed\\ui-2.2.8\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,43",
+                        "endOffsets": "105,149"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Asus\\Desktop\\FinalProject\\FeesManager_v8\\FeesManager_v8\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",
+                    "from": {
+                        "startLines": "9,10,8,12,11,6,7,5,3,4,2",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "361,403,315,489,447,235,275,196,103,149,55",
+                        "endColumns": "41,43,45,41,41,39,39,38,45,46,47",
+                        "endOffsets": "398,442,356,526,484,270,310,230,144,191,98"
+                    },
+                    "to": {
+                        "startLines": "13,23,26,27,28,29,30,31,32,33,34",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "748,1352,1511,1557,1599,1641,1681,1721,1760,1806,1853",
+                        "endColumns": "41,43,45,41,41,39,39,38,45,46,47",
+                        "endOffsets": "785,1391,1552,1594,1636,1676,1716,1755,1801,1848,1896"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\8.13\\transforms\\9a0687da52ce696b4d482f5fabe0e136\\transformed\\appcompat-1.7.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "192,261,330,400,474,550,609,680",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "256,325,395,469,545,604,675,743"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\8.13\\transforms\\adf4a9d9fca13c3d1ff610eb9045dcaf\\transformed\\standard-core-1.7.12\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,93",
+                        "endLines": "2,15",
+                        "endColumns": "37,12",
+                        "endOffsets": "88,871"
+                    },
+                    "to": {
+                        "startLines": "4,36",
+                        "startColumns": "4,4",
+                        "startOffsets": "154,1964",
+                        "endLines": "4,48",
+                        "endColumns": "37,12",
+                        "endOffsets": "187,2742"
+                    }
+                }
+            ]
+        }
+    ]
+}

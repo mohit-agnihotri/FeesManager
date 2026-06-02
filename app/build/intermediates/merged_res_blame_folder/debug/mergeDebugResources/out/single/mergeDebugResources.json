@@ -1,0 +1,382 @@
+[
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_pending_approval.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_pending_approval.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_input.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_input.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_pay_fees.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_pay_fees.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_stat_red.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_stat_red.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_card_red.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_card_red.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_message.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_message.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_card.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_card.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_btn_indigo.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_btn_indigo.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_gradient_main.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_gradient_main.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/anim_btn_press.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/anim/btn_press.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_action_btn.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_action_btn.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_signup.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_signup.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_queries.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_queries.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_badge_red.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_badge_red.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_input_modern.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_input_modern.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_add_student.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_add_student.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_view_students.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_view_students.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_advance_students.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_advance_students.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_header_dark.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_header_dark.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_setup_profile.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_setup_profile.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_ai_fab.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_ai_fab.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_cashfree_onboarding.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_cashfree_onboarding.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_dashboard.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_dashboard.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_ic_default_avatar.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/ic_default_avatar.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_backup.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_backup.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_pending_students.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_pending_students.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_gradient.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_gradient.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_main.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_ic_person_placeholder.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/ic_person_placeholder.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_fees_entry.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_fees_entry.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_circle_avatar.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_circle_avatar.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_stat_green.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_stat_green.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_multi_academy.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_multi_academy.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_card_modern.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_card_modern.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_input_field.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_input_field.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_btn_secondary.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_btn_secondary.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_action_card.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_action_card.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_stat_blue.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_stat_blue.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_bubble_other.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_bubble_other.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_card_green.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_card_green.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_faq.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_faq.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_history.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_history.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_splash.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_profile.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_profile.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_ripple_card.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/ripple_card.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_avatar_circle.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_avatar_circle.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_analytics.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_analytics.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_ripple_green.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/ripple_green.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_ai_bubble_user.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_ai_bubble_user.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_nav_drawer_teacher.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/nav_drawer_teacher.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_nav_drawer_student.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/nav_drawer_student.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_announcements.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_announcements.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_language_select.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_language_select.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_join.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_join.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_ripple_indigo.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/ripple_indigo.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_fee_calendar.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_fee_calendar.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/anim_slide_out_left.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/anim/slide_out_left.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_attendance.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_attendance.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_button_gradient.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_button_gradient.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_receipt.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_receipt.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_bubble_mine.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_bubble_mine.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_set_class_fees.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_set_class_fees.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/xml_backup_rules.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_nav_item.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/nav_item.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_send_btn.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_send_btn.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_advance_payment.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_advance_payment.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/anim_scale_in.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/anim/scale_in.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_neu_button.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_neu_button.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_btn_primary.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_btn_primary.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_role_select.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_role_select.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_student_login.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_student_login.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_ai_bubble_bot.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_ai_bubble_bot.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/anim_fade_in.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/anim/fade_in.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_dropdown_item.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/dropdown_item.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/anim_slide_up.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/anim/slide_up.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/anim_item_anim.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/anim/item_anim.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_pill.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_pill.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_dashboard.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_settings.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_teacher_ai.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_teacher_ai.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_input_chat.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_input_chat.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_edit_student.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_edit_student.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_card_indigo.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_card_indigo.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_neu_card.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_neu_card.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/anim_slide_in_right.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/anim/slide_in_right.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_quick_action_chip.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_quick_action_chip.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_priority_urgent.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_priority_urgent.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_razorpay_onboarding.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_razorpay_onboarding.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/layout_activity_payment_requests.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/layout/activity_payment_requests.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable_bg_btn_white.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable/bg_btn_white.xml"
+    },
+    {
+        "merged": "com.example.feesmanager.app-debug-56:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.feesmanager.app-main-58:/drawable-v24/ic_launcher_foreground.xml"
+    }
+]

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0A0F1E"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:orientation="horizontal"
+        android:background="@drawable/bg_header_dark"
+        android:padding="16dp" android:gravity="center_vertical"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:text="💰 Record Payment"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#F1F5F9"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:padding="20dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <!-- Student search -->
+            <TextView android:text="Student" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/actvStudent"
+                android:hint="Search student name..."
+                android:textColor="#F1F5F9"
+                android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern"
+                android:padding="14dp"
+                android:completionThreshold="1"
+                android:dropDownHeight="200dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Pending fee chip -->
+            <LinearLayout android:id="@+id/layoutPendingHint"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_card_modern"
+                android:padding="12dp" android:gravity="center_vertical"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:text="📌 Pending: "
+                    android:textColor="#94A3B8" android:textSize="13sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvPendingAmount"
+                    android:text="₹0"
+                    android:textColor="#F87171" android:textSize="16sp" android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_width="0dp" android:layout_height="wrap_content"/>
+                <Button android:id="@+id/btnFillPending"
+                    android:text="Fill ↓"
+                    android:textAllCaps="false" android:textSize="12sp"
+                    android:textColor="#6366F1"
+                    android:background="@null" android:padding="4dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView android:text="Amount (₹)" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/etAmount"
+                android:hint="Enter amount"
+                android:textColor="#F1F5F9" android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern"
+                android:padding="16dp" android:inputType="number"
+                android:textSize="20sp" android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent" android:layout_height="64dp"/>
+
+            <TextView android:text="Payment Mode" android:textColor="#94A3B8"
+                android:textSize="13sp" android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Spinner android:id="@+id/modeSpinner"
+                android:background="@drawable/bg_input_modern"
+                android:paddingLeft="14dp" android:paddingRight="14dp"
+                android:layout_marginBottom="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Hidden spinner for backward compatibility -->
+            <Spinner android:id="@+id/studentSpinner"
+                android:visibility="gone"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+            <Button android:id="@+id/btnRecord"
+                android:text="✅ Record Payment"
+                android:textAllCaps="false" android:textColor="#fff"
+                android:textSize="16sp"
+                android:backgroundTint="#6366F1"
+                android:stateListAnimator="@null"
+                android:layout_width="match_parent" android:layout_height="@dimen/btn_height"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
