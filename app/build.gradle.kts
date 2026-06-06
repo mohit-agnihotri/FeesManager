@@ -77,9 +77,8 @@ dependencies {
     // ── Biometric ─────────────────────────────────────────────────
     implementation("androidx.biometric:biometric:1.1.0")
 
-    // ── UPI Payments & Razorpay (KEPT — for rollback) ────────────────────────
-    implementation("com.razorpay:checkout:1.6.40")
-
+    // ── UPI Payments (Cashfree only) ────────────────────────
+    
     // ── Cashfree Payment Gateway SDK (NEW) ───────────────────────────────────
     implementation("com.cashfree.pg:api:2.2.8")
     // ── MPAndroidChart ────────────────────────────────────────────

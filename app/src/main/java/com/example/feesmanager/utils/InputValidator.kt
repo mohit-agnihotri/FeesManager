@@ -50,8 +50,4 @@ object InputValidator {
     fun isValidJoinCode(code: String): Boolean {
         return code.length == 6 && code.matches(Regex("[A-Z0-9]+"))
     }
-
-    fun isValidRazorpayKey(key: String): Boolean {
-        return key.startsWith("rzp_test_") || key.startsWith("rzp_live_")
-    }
 }

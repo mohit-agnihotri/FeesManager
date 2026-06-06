@@ -281,7 +281,7 @@
                                 android:textSize="@dimen/text_xs" android:gravity="center"
                                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                         </LinearLayout>
-                        <LinearLayout android:id="@+id/btnRazorpayConnect" android:orientation="vertical"
+                        <LinearLayout android:id="@+id/btnPaymentConnect" android:orientation="vertical"
                             android:gravity="center" android:background="@drawable/ripple_card"
                             android:padding="12dp" android:layout_weight="1" android:layout_marginStart="5dp"
                             android:clickable="true" android:focusable="true"
@@ -289,7 +289,7 @@
                             android:layout_width="0dp" android:layout_height="wrap_content">
                             <TextView android:text="💳" android:textSize="28sp" android:gravity="center"
                                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:id="@+id/tvRazorpayStatus" android:text="Connect Pay"
+                            <TextView android:id="@+id/tvPaymentStatus" android:text="Connect Pay"
                                 android:textColor="#94A3B8"
                                 android:textSize="@dimen/text_xs" android:gravity="center"
                                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>

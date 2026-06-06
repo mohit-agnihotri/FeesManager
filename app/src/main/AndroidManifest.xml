@@ -58,7 +58,6 @@
         <!-- Language / Settings -->
         <activity android:name=".ui.auth.LanguageSelectActivity"  android:exported="false" />
         <activity android:name=".ui.settings.SettingsActivity"        android:exported="false" />
-        <activity android:name=".ui.payment.RazorpayOnboardingActivity" android:exported="false" />
         <!-- Cashfree payment setup screen (NEW — active when AppPaymentConfig.isCashfree) -->
         <activity android:name=".ui.payment.CashfreeOnboardingActivity" android:exported="false" />
 
@@ -93,15 +92,6 @@
         <activity android:name=".ui.fees.HistoryActivity"         android:exported="false" />
         <activity android:name=".ui.fees.FeeCalendarActivity"     android:exported="false" />
         <activity android:name=".ui.settings.MultiAcademyActivity"    android:exported="false" />
-
-        <!-- Razorpay -->
-        <activity android:name="com.razorpay.CheckoutActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|uiMode|screenLayout|screenSize|smallestScreenSize"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.Light.Dialog"
-            tools:node="replace" />
 
         <!-- FCM: Stubbed — NotificationHelper handles logging. Service class removed. -->
 

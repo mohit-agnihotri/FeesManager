@@ -11,19 +11,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
-import com.example.feesmanager.ui.student.AddStudentActivity
+import com.example.feesmanager.ui.announcements.AnnouncementsActivity
+import com.example.feesmanager.ui.attendance.AttendanceActivity
 import com.example.feesmanager.ui.advances.AdvanceStudentsActivity
 import com.example.feesmanager.ui.analytics.AnalyticsActivity
-import com.example.feesmanager.ui.announcements.AnnouncementsActivity
-import com.example.feesmanager.ui.payment.AppPaymentConfig
-import com.example.feesmanager.ui.attendance.AttendanceActivity
+import com.example.feesmanager.ui.student.AddStudentActivity
 import com.example.feesmanager.ui.settings.BackupActivity
 import com.example.feesmanager.ui.payment.CashfreeOnboardingActivity
 import com.example.feesmanager.ui.chat.ChatHubActivity
 import com.example.feesmanager.ui.fees.FeesEntryActivity
 import com.example.feesmanager.ui.student.PendingStudentsActivity
 import com.example.feesmanager.R
-import com.example.feesmanager.ui.payment.RazorpayOnboardingActivity
 import com.example.feesmanager.ui.fees.SetClassFeesActivity
 import com.example.feesmanager.ui.student.ViewStudentsActivity
 import com.example.feesmanager.ai.ui.TeacherAiActivity
@@ -65,31 +63,17 @@ class DashboardActivity : BaseActivity() {
     private var currentTeacherId = ""
 
     @Serializable
-    private data class RazorpayStatusRow(val razorpay_onboarding_status: String? = null)
-
-    @Serializable
     private data class CashfreeStatusRow(
         val vendor_status: String? = null,
         val kyc_status:    String? = null
     )
 
-    // UPI/Razorpay status launcher (KEPT INTACT)
-    private val upiOnboardingLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                runCatching {
-                    val tvStatus = findViewById<TextView>(R.id.tvRazorpayStatus)
-                    refreshUpiStatus(tvStatus)
-                }
-            }
-        }
-
-    // Cashfree payment setup launcher (NEW — used when PAYMENT_PROVIDER = CASHFREE)
+    // Cashfree payment setup launcher
     private val cashfreeSetupLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 runCatching {
-                    val tvStatus = findViewById<TextView>(R.id.tvRazorpayStatus)
+                    val tvStatus = findViewById<TextView>(R.id.tvPaymentStatus)
                     refreshPaymentStatus(tvStatus)
                 }
             }
@@ -157,7 +141,7 @@ class DashboardActivity : BaseActivity() {
                     totalStudents.text = "${s.totalStudents}"
                     totalFees.text     = "₹${s.totalCollectedFees + s.totalPendingFees}"
                     collected.text     = "₹${s.totalCollectedFees}"
-                    pending.text       = "₹${s.totalPendingFees}" // Removed request count from text since we have a badge now
+                    pending.text       = "₹${s.totalPendingFees}"
 
                     // Update join requests badge
                     val badge = findViewById<TextView>(R.id.tvJoinRequestsBadge)
@@ -197,7 +181,7 @@ class DashboardActivity : BaseActivity() {
             viewModel.loadDashboard(currentTeacherId)
 
             // Refresh payment status badge
-            val tvStatus = findViewById<TextView>(R.id.tvRazorpayStatus)
+            val tvStatus = findViewById<TextView>(R.id.tvPaymentStatus)
             if (tvStatus != null) refreshPaymentStatus(tvStatus)
 
             // Refresh unread badge on chat button
@@ -221,7 +205,7 @@ class DashboardActivity : BaseActivity() {
                 is FmResult.Loading -> toast("Uploading photo...")
                 is FmResult.Success -> {
                     GlideHelper.loadAvatarFresh(ivTeacherAvatar, result.content)
-                    toast("Profile photo updated ✅")
+                    toast("Profile photo updated ✅.")
                 }
                 is FmResult.Error -> toast("Upload failed: ${result.message}")
             }
@@ -242,31 +226,24 @@ class DashboardActivity : BaseActivity() {
         go(R.id.btnBackup,          BackupActivity::class.java)
         go(R.id.btnAdvanceStudents, AdvanceStudentsActivity::class.java)
 
-        // Chat button — opens ChatHubActivity (hub for personal + class)
+        // Chat button — opens ChatHubActivity
         runCatching {
             findViewById<View>(R.id.btnStudentQueries).withBounce {
                 startActivity(Intent(this, ChatHubActivity::class.java))
             }
         }
 
-        // Payment Connect button — routes to Cashfree or Razorpay based on feature flag
+        // Payment Connect button
         runCatching {
-            val btnRp    = findViewById<View>(R.id.btnRazorpayConnect)
-            val tvStatus = findViewById<TextView>(R.id.tvRazorpayStatus)
+            val btnPayment = findViewById<View>(R.id.btnPaymentConnect)
+            val tvStatus   = findViewById<TextView>(R.id.tvPaymentStatus)
 
-            // Load current connection status
             refreshPaymentStatus(tvStatus)
 
-            btnRp?.setOnClickListener {
-                if (AppPaymentConfig.isCashfree) {
-                    cashfreeSetupLauncher.launch(
-                        Intent(this, CashfreeOnboardingActivity::class.java)
-                    )
-                } else {
-                    upiOnboardingLauncher.launch(
-                        Intent(this, RazorpayOnboardingActivity::class.java)
-                    )
-                }
+            btnPayment?.setOnClickListener {
+                cashfreeSetupLauncher.launch(
+                    Intent(this, CashfreeOnboardingActivity::class.java)
+                )
             }
         }
 
@@ -296,17 +273,8 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-    /**
-     * Refreshes payment status badge — routes to Cashfree or Razorpay based on feature flag.
-     * Both functions kept for rollback.
-     */
+    /** Cashfree vendor status */
     private fun refreshPaymentStatus(tvStatus: TextView?) {
-        if (AppPaymentConfig.isCashfree) refreshCashfreeStatus(tvStatus)
-        else                              refreshUpiStatus(tvStatus)
-    }
-
-    /** Cashfree vendor status (NEW) */
-    private fun refreshCashfreeStatus(tvStatus: TextView?) {
         lifecycleScope.launch {
             try {
                 val row = SupabaseManager.client.postgrest
@@ -323,22 +291,6 @@ class DashboardActivity : BaseActivity() {
                 }
                 tvStatus?.text = label
                 tvStatus?.setTextColor(if (isActive) 0xFF22C55E.toInt() else 0xFF94A3B8.toInt())
-            } catch (_: Exception) {}
-        }
-    }
-
-    /** Razorpay UPI status (KEPT INTACT) */
-    private fun refreshUpiStatus(tvStatus: TextView?) {
-        lifecycleScope.launch {
-            try {
-                val row = SupabaseManager.client.postgrest
-                    .from("teachers")
-                    .select(Columns.Companion.raw("razorpay_onboarding_status")) {
-                        filter { eq("id", currentTeacherId) }
-                    }.decodeSingleOrNull<RazorpayStatusRow>()
-                val connected = row?.razorpay_onboarding_status == "activated"
-                tvStatus?.text = if (connected) "Payments ✅ Active" else "Setup Payments"
-                tvStatus?.setTextColor(if (connected) 0xFF22C55E.toInt() else 0xFF94A3B8.toInt())
             } catch (_: Exception) {}
         }
     }

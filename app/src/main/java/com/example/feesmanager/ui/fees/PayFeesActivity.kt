@@ -25,19 +25,12 @@ import com.example.feesmanager.data.repository.AuthRepository
 import com.example.feesmanager.data.repository.CashfreeOrderData
 import com.example.feesmanager.ui.auth.SessionManager
 import com.example.feesmanager.utils.InputValidator
-import com.razorpay.Checkout
-import com.razorpay.PaymentData
-import com.razorpay.PaymentResultWithDataListener
 import org.json.JSONObject
 
 /**
- * PayFeesActivity — Student fee payment screen.
- *
- * Supports BOTH Razorpay and Cashfree via AppPaymentConfig.PAYMENT_PROVIDER flag.
- * Switching providers: change AppPaymentConfig.PAYMENT_PROVIDER to "RAZORPAY" or "CASHFREE".
- * Neither implementation is deleted — both paths remain for instant rollback.
+ * PayFeesActivity — Student fee payment screen using Cashfree.
  */
-class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckoutResponseCallback {
+class PayFeesActivity : BaseActivity(), CFCheckoutResponseCallback {
     private val viewModel: PayFeesViewModel by viewModels()
 
     private lateinit var amountEt        : EditText
@@ -56,11 +49,6 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pay_fees)
 
-        // Pre-warm Razorpay SDK only if using Razorpay (kept for rollback)
-        if (AppPaymentConfig.isRazorpay) {
-            Checkout.preload(applicationContext)
-        }
-
         // Register Cashfree callback
         try {
             CFPaymentGatewayService.getInstance().setCheckoutCallback(this)
@@ -75,19 +63,16 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
         }
 
         amountEt        = findViewById(R.id.etAmount)
-        payBtn          = findViewById(R.id.btnPayRazorpay)   // reuse existing button ID
+        payBtn          = findViewById(R.id.btnPayRazorpay)   // Kept ID for layout compatibility
         tvPendingAmount = findViewById(R.id.tvPendingAmount)
         tvStudentInfo   = findViewById(R.id.tvStudentInfo)
         progressBar     = findViewById(R.id.payProgress)
         tvProviderNote  = findViewById(R.id.tvPaymentProviderNote)
 
         // Update provider note label
-        tvProviderNote.text = if (AppPaymentConfig.isCashfree)
-            "🔒 Payments secured by Cashfree\nSupports UPI, Cards, Net Banking"
-        else
-            "🔒 Payments secured by Razorpay\nSupports UPI, Cards, Net Banking"
+        tvProviderNote.text = "🔒 Payments secured by Cashfree\nSupports UPI, Cards, Net Banking"
 
-        findViewById<View>(R.id.btnPayRequest).visibility = View.GONE
+        // btnPayRequest removed
 
         teacherId = SessionManager.getStudentTeacherId(this) ?: return
         studentId = SessionManager.getStudentId(this)        ?: return
@@ -110,7 +95,7 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
                     currentInfo = result.content
                     val info = result.content
 
-                    tvStudentInfo.text   = "👤 ${info.studentName} | Class ${info.className}"
+                    tvStudentInfo.text   = "🎓  ${info.studentName} | Class ${info.className}"
                     tvPendingAmount.text = "Total Pending: ₹${info.totalPending}"
                     if (info.totalPending > 0) amountEt.setText(info.totalPending.toString())
 
@@ -129,27 +114,7 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
             }
         }
 
-        // ── Razorpay order result (KEPT INTACT) ───────────────────────────────
-        viewModel.orderResult.observe(this) { result ->
-            when (result) {
-                is FmResult.Loading -> { showLoading(true) }
-                is FmResult.Success -> {
-                    showLoading(false)
-                    launchRazorpayCheckout(
-                        result.content.orderId,
-                        result.content.keyId,
-                        result.content.academyName,
-                        result.content.amountInINR
-                    )
-                }
-                is FmResult.Error -> {
-                    showLoading(false)
-                    toast(result.message)
-                }
-            }
-        }
-
-        // ── Cashfree order result (NEW) ────────────────────────────────────────
+        // Cashfree order result
         viewModel.cashfreeOrderResult.observe(this) { result ->
             when (result) {
                 is FmResult.Loading -> { showLoading(true) }
@@ -164,12 +129,12 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
             }
         }
 
-        // ── Receipt result (shared) ────────────────────────────────────────────
+        // Receipt result
         viewModel.paymentResult.observe(this) { result ->
             if (result is FmResult.Success) {
                 val s = result.content
-                if (s.advance > 0) toast("Payment Successful! 🎉 (₹${s.advance} saved as advance)")
-                else               toast("Payment Successful! 🎉")
+                if (s.advance > 0) toast("Payment Successful! ✅ (₹${s.advance} saved as advance)")
+                else               toast("Payment Successful! ✅")
 
                 startActivity(Intent(this, ReceiptActivity::class.java).apply {
                     putExtra("name",          s.studentName)
@@ -200,15 +165,10 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
             toast("Teacher has not enabled online payments."); return
         }
 
-        // Feature flag: route to correct provider
-        if (AppPaymentConfig.isCashfree) {
-            viewModel.createCashfreeOrder(teacherId, studentId, payAmount)
-        } else {
-            viewModel.createRazorpayOrder(teacherId, studentId, payAmount)
-        }
+        viewModel.createCashfreeOrder(teacherId, studentId, payAmount)
     }
 
-    // ── Cashfree Checkout (NEW) ────────────────────────────────────────────────
+    // ── Cashfree Checkout ─────────────────────────
 
     private fun launchCashfreeCheckout(orderData: CashfreeOrderData) {
         try {
@@ -241,7 +201,7 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
         }
     }
 
-    // ── Cashfree Callbacks ─────────────────────────────────────────────────────
+    // ── Cashfree Callbacks ─────────────────────────
 
     override fun onPaymentVerify(orderId: String) {
         // Called by Cashfree SDK on payment success
@@ -263,49 +223,7 @@ class PayFeesActivity : BaseActivity(), PaymentResultWithDataListener, CFCheckou
         toast("Payment failed: ${cfErrorResponse.message}")
     }
 
-    // ── Razorpay Callbacks (KEPT INTACT — for rollback) ───────────────────────
-
-    override fun onPaymentSuccess(razorpayPaymentId: String?, paymentData: PaymentData?) {
-        val info      = currentInfo ?: return
-        val paymentId = razorpayPaymentId ?: "TXN_${System.currentTimeMillis()}"
-        viewModel.generateLocalReceipt(
-            studentName   = info.studentName,
-            payAmount     = payAmount,
-            totalPending  = info.totalPending,
-            transactionId = paymentId,
-            provider      = "Razorpay"
-        )
-    }
-
-    override fun onPaymentError(code: Int, response: String?, paymentData: PaymentData?) {
-        toast("Payment failed: $response")
-    }
-
-    // ── Razorpay Checkout (KEPT INTACT — for rollback) ────────────────────────
-
-    private fun launchRazorpayCheckout(orderId: String, keyId: String, academyName: String, amountInINR: Int) {
-        val checkout = Checkout()
-        checkout.setKeyID(keyId)
-        try {
-            val options = JSONObject()
-            options.put("name",        academyName)
-            options.put("description", "Fees Payment")
-            options.put("currency",    "INR")
-            options.put("amount",      amountInINR * 100)  // Razorpay expects paise
-            options.put("order_id",    orderId)
-
-            val prefill = JSONObject()
-            prefill.put("email",   currentInfo?.email   ?: "")
-            prefill.put("contact", currentInfo?.whatsapp ?: "")
-            options.put("prefill", prefill)
-
-            checkout.open(this, options)
-        } catch (e: Exception) {
-            toast("Error launching payment: ${e.message}")
-        }
-    }
-
-    // ── Helpers ───────────────────────────────────────────────────────────────
+    // ── Helpers ─────────────────────────
 
     private fun showLoading(loading: Boolean) {
         progressBar.visibility = if (loading) View.VISIBLE else View.GONE

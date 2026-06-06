@@ -212,7 +212,7 @@ class FeesRepository {
     ) {
         try {
             val teacher = db.from("teachers")
-                .select(Columns.raw("academy_name, upi_id, razorpay_account_id, razorpay_onboarding_status, cashfree_vendor_id, vendor_status")) { filter { eq("id", teacherId) } }
+                .select(Columns.raw("academy_name, upi_id, cashfree_vendor_id, vendor_status")) { filter { eq("id", teacherId) } }
                 .decodeSingle<TeacherRow>()
 
             val enrollment = db.from("enrollments")
@@ -246,16 +246,10 @@ class FeesRepository {
             } catch (_: Exception) { AdvanceRow() }
             val netPending = maxOf(0, grossPending - advRow.advance_balance.toInt())
 
-            val isRazorpayActive = teacher.razorpay_onboarding_status == "activated"
-            val hasUpi = !teacher.upi_id.isNullOrEmpty()
             val isCashfreeActive = teacher.vendor_status == "ACTIVE"
 
-            // Feature flag: check active provider — both paths kept for rollback
-            val isPaymentEnabled = if (AppPaymentConfig.isCashfree) {
-                isCashfreeActive
-            } else {
-                isRazorpayActive || hasUpi
-            }
+            // Feature flag: check active provider
+            val isPaymentEnabled = isCashfreeActive
 
             onResult(FmResult.Success(StudentPaymentInfo(
                 isPaymentEnabled = isPaymentEnabled,
@@ -357,8 +351,6 @@ class FeesRepository {
     private data class TeacherRow(
         val academy_name: String,
         val upi_id: String? = null,
-        val razorpay_account_id: String? = null,
-        val razorpay_onboarding_status: String? = null,
         // Cashfree fields (nullable — columns added by migration v4)
         val cashfree_vendor_id: String? = null,
         val vendor_status: String? = null
