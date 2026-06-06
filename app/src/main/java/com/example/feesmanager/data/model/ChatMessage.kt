@@ -7,5 +7,7 @@ data class ChatMessage(
     val senderName : String = "",
     val timestamp  : String = "",   // ISO timestamp from Supabase
     val isClass    : Boolean = false,
-    val time       : Long   = 0L    // kept for backward compat
+    val time       : Long   = 0L,   // kept for backward compat
+    val attachmentUrl: String? = null,
+    val deletedBy  : List<String> = emptyList()
 )

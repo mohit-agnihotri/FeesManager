@@ -7,13 +7,13 @@
     <LinearLayout android:orientation="horizontal" android:background="@drawable/bg_header_dark"
         android:padding="16dp" android:gravity="center_vertical"
         android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView android:text="🔔 Students" android:textSize="20sp"
+        <TextView android:id="@+id/tvHeaderTitle" android:text="🔔 Students" android:textSize="20sp"
             android:textStyle="bold" android:textColor="#F1F5F9"
             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <!-- Tabs -->
-    <LinearLayout android:orientation="horizontal"
+    <LinearLayout android:id="@+id/layoutTabs" android:orientation="horizontal"
         android:background="#111827" android:padding="8dp"
         android:layout_width="match_parent" android:layout_height="wrap_content">
 

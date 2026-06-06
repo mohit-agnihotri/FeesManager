@@ -1,8 +1,8 @@
 package com.example.feesmanager.data.repository
 
 import android.util.Log
-import com.example.feesmanager.data.FmResult
-import com.example.feesmanager.data.SupabaseManager
+import com.example.feesmanager.data.network.FmResult
+import com.example.feesmanager.data.network.SupabaseManager
 import com.example.feesmanager.data.model.Teacher
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns

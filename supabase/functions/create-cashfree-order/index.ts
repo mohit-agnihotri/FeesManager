@@ -26,13 +26,17 @@ serve(async (req) => {
 
   try {
     // ── 1. Auth check ─────────────────────────────────────────────────────
+    const authHeader = req.headers.get("Authorization")
+    if (!authHeader) throw new Error("Missing Authorization header")
+
+    const token = authHeader.replace("Bearer ", "")
+
     const supabaseClient = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
-      { global: { headers: { Authorization: req.headers.get("Authorization")! } } }
+      Deno.env.get("SUPABASE_ANON_KEY") ?? ""
     )
 
-    const { data: { user }, error: authError } = await supabaseClient.auth.getUser()
+    const { data: { user }, error: authError } = await supabaseClient.auth.getUser(token)
     if (authError || !user) throw new Error("Unauthorized")
 
     // ── 2. Parse request body ─────────────────────────────────────────────
@@ -62,14 +66,20 @@ serve(async (req) => {
       throw new Error(`Payment setup incomplete. Vendor status: ${teacher.vendor_status}. Please wait for KYC approval.`)
     }
 
+    // Create service client to bypass RLS for fetching crucial IDs
+    const serviceClient = createClient(
+      Deno.env.get("SUPABASE_URL")              ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
+    )
+
     // ── 4. Fetch student details ──────────────────────────────────────────
-    const { data: studentProfile } = await supabaseClient
+    const { data: studentProfile } = await serviceClient
       .from("profiles")
       .select("full_name, email")
       .eq("id", student_id)
       .single()
 
-    const { data: enrollment } = await supabaseClient
+    const { data: enrollment } = await serviceClient
       .from("enrollments")
       .select("id, whatsapp_number")
       .eq("student_id", student_id)
@@ -135,11 +145,6 @@ serve(async (req) => {
     }
 
     // ── 7. Store order in payment_orders table ────────────────────────────
-    const serviceClient = createClient(
-      Deno.env.get("SUPABASE_URL")              ?? "",
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
-    )
-
     const { error: insertError } = await serviceClient
       .from("payment_orders")
       .insert({

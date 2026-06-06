@@ -1,9 +1,9 @@
 package com.example.feesmanager.data.repository
 
 import android.util.Log
-import com.example.feesmanager.AppPaymentConfig
-import com.example.feesmanager.data.FmResult
-import com.example.feesmanager.data.SupabaseManager
+import com.example.feesmanager.ui.payment.AppPaymentConfig
+import com.example.feesmanager.data.network.FmResult
+import com.example.feesmanager.data.network.SupabaseManager
 import com.example.feesmanager.data.model.CashfreeVendorStatus
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.postgrest
@@ -108,7 +108,7 @@ class CashfreeRepository {
     }
 
     /**
-     * Loads current Cashfree vendor status from Supabase for a given teacher.
+     * Loads current Cashfree vendor status by syncing with Cashfree.
      */
     suspend fun getVendorStatus(
         teacherId: String,
@@ -116,23 +116,32 @@ class CashfreeRepository {
     ) {
         withContext(Dispatchers.IO) {
             try {
-                val row = db.from("teachers")
-                    .select(Columns.raw(
-                        "cashfree_vendor_id, vendor_status, kyc_status, " +
-                        "bank_account_name, bank_account_number, bank_ifsc"
-                    )) {
-                        filter { eq("id", teacherId) }
-                    }.decodeSingleOrNull<TeacherCashfreeRow>()
+                val session = SupabaseManager.client.auth.currentSessionOrNull()
+                val token   = session?.accessToken ?: throw Exception("Not logged in")
 
-                val status = CashfreeVendorStatus(
-                    cashfreeVendorId  = row?.cashfree_vendor_id  ?: "",
-                    vendorStatus      = row?.vendor_status        ?: "not_started",
-                    kycStatus         = row?.kyc_status           ?: "not_started",
-                    bankAccountName   = row?.bank_account_name    ?: "",
-                    bankAccountNumber = row?.bank_account_number  ?: "",
-                    bankIfsc          = row?.bank_ifsc             ?: ""
-                )
-                onResult(FmResult.Success(status))
+                Log.d("CashfreeRepo", "Calling sync-cashfree-vendor")
+                val response = client.get(AppPaymentConfig.FN_CASHFREE_SYNC_VENDOR) {
+                    header("Authorization", "Bearer $token")
+                }
+
+                val responseText = response.bodyAsText()
+                Log.d("CashfreeRepo", "sync-cashfree-vendor response: $responseText")
+                val json = JSONObject(responseText)
+
+                if (response.status.value in 200..299) {
+                    val status = CashfreeVendorStatus(
+                        cashfreeVendorId  = json.optString("cashfree_vendor_id", ""),
+                        vendorStatus      = json.optString("vendor_status", "not_started"),
+                        kycStatus         = json.optString("kyc_status", "not_started"),
+                        bankAccountName   = json.optString("bank_account_name", ""),
+                        bankAccountNumber = json.optString("bank_account_number", ""),
+                        bankIfsc          = json.optString("bank_ifsc", "")
+                    )
+                    onResult(FmResult.Success(status))
+                } else {
+                    val errMsg = json.optString("error", "Failed to sync status")
+                    onResult(FmResult.Error(errMsg))
+                }
 
             } catch (e: Exception) {
                 Log.e("CashfreeRepo", "getVendorStatus failed", e)
@@ -234,6 +243,46 @@ class CashfreeRepository {
             } catch (e: Exception) {
                 Log.e("CashfreeRepo", "createOrder failed", e)
                 onResult(FmResult.Error("Failed: ${e.message}"))
+            }
+        }
+    }
+
+    // ─── Payment Verification (called after SDK confirms success) ────────────
+
+    /**
+     * Verifies a Cashfree payment by calling the verify-cashfree-payment Edge Function.
+     * This is the PRIMARY path for recording payments in the database.
+     * The webhook is just a fallback.
+     */
+    suspend fun verifyPayment(
+        cashfreeOrderId: String,
+        onResult: (FmResult<String>) -> Unit
+    ) {
+        withContext(Dispatchers.IO) {
+            try {
+                val session = SupabaseManager.client.auth.currentSessionOrNull()
+                val token   = session?.accessToken ?: throw Exception("Not logged in")
+
+                val response = client.post(AppPaymentConfig.FN_CASHFREE_VERIFY_PAYMENT) {
+                    header("Authorization", "Bearer $token")
+                    contentType(ContentType.Application.Json)
+                    setBody("""{"cashfree_order_id": "$cashfreeOrderId"}""")
+                }
+
+                val responseText = response.bodyAsText()
+                Log.d("CashfreeRepo", "verifyPayment response: $responseText")
+                val json = JSONObject(responseText)
+
+                if (response.status.value in 200..299) {
+                    val status = json.optString("status", "unknown")
+                    onResult(FmResult.Success(status))
+                } else {
+                    val errMsg = json.optString("error", "Verification failed")
+                    onResult(FmResult.Error(errMsg))
+                }
+            } catch (e: Exception) {
+                Log.e("CashfreeRepo", "verifyPayment failed", e)
+                onResult(FmResult.Error("Verify failed: ${e.message}"))
             }
         }
     }

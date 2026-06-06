@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.feesmanager.data.FmResult
+import com.example.feesmanager.data.network.FmResult
 import com.example.feesmanager.data.repository.AttendanceRepository
 import kotlinx.coroutines.launch
 

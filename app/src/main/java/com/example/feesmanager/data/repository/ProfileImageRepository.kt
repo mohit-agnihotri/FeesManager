@@ -2,8 +2,8 @@ package com.example.feesmanager.data.repository
 
 import android.content.Context
 import android.net.Uri
-import com.example.feesmanager.data.FmResult
-import com.example.feesmanager.data.SupabaseManager
+import com.example.feesmanager.data.network.FmResult
+import com.example.feesmanager.data.network.SupabaseManager
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.storage.storage
 import io.github.jan.supabase.storage.upload

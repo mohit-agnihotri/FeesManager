@@ -22,7 +22,7 @@
         tools:targetApi="31">
 
         <!-- Entry: Splash → Language → Role Select -->
-        <activity android:name=".SplashActivity" android:exported="true">
+        <activity android:name=".ui.auth.SplashActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,70 +30,69 @@
         </activity>
 
         <!-- Chat -->
-        <activity android:name=".MessageActivity"
+        <activity android:name=".ui.chat.MessageActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".ClassChatActivity"
+        <activity android:name=".ui.chat.ClassChatActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".ClassSelectChatActivity"
+        <activity android:name=".ui.chat.ClassSelectChatActivity"
             android:exported="false"/>
-        <activity android:name=".StudentQueriesActivity"   android:exported="false" />
+        <activity android:name=".ui.chat.ChatHubActivity"
+            android:exported="false"/>
+        <activity android:name=".ui.chat.StudentQueriesActivity"   android:exported="false" />
 
         <!-- AI Assistant -->
 
-        <activity android:name=".TeacherAiActivity"
+        <activity android:name=".ai.ui.TeacherAiActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
 
         <!-- Advance -->
-        <activity android:name=".AdvanceStudentsActivity"  android:exported="false" />
-        <activity android:name=".AdvancePaymentActivity"   android:exported="false" />
+        <activity android:name=".ui.advances.AdvanceStudentsActivity"  android:exported="false" />
+        <activity android:name=".ui.advances.AdvancePaymentActivity"   android:exported="false" />
 
         <!-- Student join & approval -->
-        <activity android:name=".StudentPendingApprovalActivity" android:exported="false" />
+        <activity android:name=".ui.student.StudentPendingApprovalActivity" android:exported="false" />
 
         <!-- Language / Settings -->
-        <activity android:name=".LanguageSelectActivity"  android:exported="false" />
-        <activity android:name=".SettingsActivity"        android:exported="false" />
-        <activity android:name=".RazorpayOnboardingActivity" android:exported="false" />
+        <activity android:name=".ui.auth.LanguageSelectActivity"  android:exported="false" />
+        <activity android:name=".ui.settings.SettingsActivity"        android:exported="false" />
+        <activity android:name=".ui.payment.RazorpayOnboardingActivity" android:exported="false" />
         <!-- Cashfree payment setup screen (NEW — active when AppPaymentConfig.isCashfree) -->
-        <activity android:name=".CashfreeOnboardingActivity" android:exported="false" />
+        <activity android:name=".ui.payment.CashfreeOnboardingActivity" android:exported="false" />
 
-        <!-- Auth -->
-        <activity android:name=".RoleSelectActivity"      android:exported="false" />
-        <activity android:name=".MainActivity"            android:exported="false" />
-        <activity android:name=".SetupProfileActivity"    android:exported="false" />
+        <!-- Auth — Unified Login (replaces MainActivity, StudentLoginActivity, StudentSignupActivity, RoleSelectActivity) -->
+        <activity android:name=".ui.auth.LoginActivity"          android:exported="false" />
+        <activity android:name=".ui.auth.SetupProfileActivity"   android:exported="false" />
 
         <!-- Teacher -->
-        <activity android:name=".DashboardActivity"       android:exported="false" />
-        <activity android:name=".AddStudentActivity"      android:exported="false" />
-        <activity android:name=".ViewStudentsActivity"    android:exported="false" />
-        <activity android:name=".StudentProfileActivity"  android:exported="false" />
-        <activity android:name=".EditStudentActivity"     android:exported="false" />
-        <activity android:name=".FeesEntryActivity"       android:exported="false" />
-        <activity android:name=".PaymentRequestsActivity" android:exported="false" />
-        <activity android:name=".PendingStudentsActivity" android:exported="false" />
-        <activity android:name=".SetClassFeesActivity"
+        <activity android:name=".ui.dashboard.DashboardActivity"       android:exported="false" />
+        <activity android:name=".ui.student.AddStudentActivity"      android:exported="false" />
+        <activity android:name=".ui.student.ViewStudentsActivity"    android:exported="false" />
+        <activity android:name=".ui.student.StudentProfileActivity"  android:exported="false" />
+        <activity android:name=".ui.student.EditStudentActivity"     android:exported="false" />
+        <activity android:name=".ui.fees.FeesEntryActivity"       android:exported="false" />
+        <activity android:name=".ui.payment.PaymentRequestsActivity" android:exported="false" />
+        <activity android:name=".ui.student.PendingStudentsActivity" android:exported="false" />
+        <activity android:name=".ui.fees.SetClassFeesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".ReceiptActivity"         android:exported="false" />
-        <activity android:name=".AnalyticsActivity"       android:exported="false" />
-        <activity android:name=".AttendanceActivity"      android:exported="false" />
-        <activity android:name=".BackupActivity"          android:exported="false" />
-        <activity android:name=".AnnouncementsActivity"   android:exported="false" />
+        <activity android:name=".ui.fees.ReceiptActivity"         android:exported="false" />
+        <activity android:name=".ui.analytics.AnalyticsActivity"       android:exported="false" />
+        <activity android:name=".ui.attendance.AttendanceActivity"      android:exported="false" />
+        <activity android:name=".ui.settings.BackupActivity"          android:exported="false" />
+        <activity android:name=".ui.announcements.AnnouncementsActivity"   android:exported="false" />
 
         <!-- Student -->
-        <activity android:name=".StudentDashboardActivity" android:exported="false" />
-        <activity android:name=".StudentLoginActivity"    android:exported="false" />
-        <activity android:name=".StudentSignupActivity"   android:exported="false" />
-        <activity android:name=".StudentJoinActivity"     android:exported="false" />
-        <activity android:name=".StudentFaqActivity"      android:exported="false"
+        <activity android:name=".ui.dashboard.StudentDashboardActivity" android:exported="false" />
+        <activity android:name=".ui.student.StudentJoinActivity"     android:exported="false" />
+        <activity android:name=".ui.settings.StudentFaqActivity"      android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".PayFeesActivity"         android:exported="false" />
-        <activity android:name=".HistoryActivity"         android:exported="false" />
-        <activity android:name=".FeeCalendarActivity"     android:exported="false" />
-        <activity android:name=".MultiAcademyActivity"    android:exported="false" />
+        <activity android:name=".ui.fees.PayFeesActivity"         android:exported="false" />
+        <activity android:name=".ui.fees.HistoryActivity"         android:exported="false" />
+        <activity android:name=".ui.fees.FeeCalendarActivity"     android:exported="false" />
+        <activity android:name=".ui.settings.MultiAcademyActivity"    android:exported="false" />
 
         <!-- Razorpay -->
         <activity android:name="com.razorpay.CheckoutActivity"
@@ -105,5 +104,16 @@
             tools:node="replace" />
 
         <!-- FCM: Stubbed — NotificationHelper handles logging. Service class removed. -->
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 </manifest>

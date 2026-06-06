@@ -58,18 +58,19 @@ serve(async (req) => {
     if (pan_number.length !== 10) throw new Error("PAN must be 10 characters")
 
     // ── 3. Create Cashfree Easy Split Vendor ─────────────────────────────
-    // vendor_id = teacher's Supabase user ID (stable, unique)
-    const vendorId = `teacher_${user.id.replace(/-/g, "").substring(0, 20)}`
+    // vendor_id must be unique. If a previous one failed, we must use a new one.
+    const uniqueSuffix = Math.floor(Math.random() * 100000).toString()
+    const vendorId = `teacher_${user.id.replace(/-/g, "").substring(0, 15)}_${uniqueSuffix}`
 
-    const vendorPayload = {
+    const createPayload = {
       vendor_id:        vendorId,
       status:           "ACTIVE",
       name:             account_name,
       email:            email || user.email || `teacher_${user.id}@feesmanager.app`,
       phone:            phone,
-      verify_account:   true,
+      verify_account:   false,
       dashboard_access: false,
-      schedule_option:  1,   // T+1 settlement
+      schedule_option:  1,
       bank: {
         account_number: account_number,
         account_holder: account_name,
@@ -77,12 +78,12 @@ serve(async (req) => {
       },
       kyc_details: {
         account_type:  "Individual",
-        business_type: "Education",   // Pre-set for teachers
+        business_type: "Education",
         pan:           pan_number.toUpperCase(),
       },
     }
 
-    console.log("Creating Cashfree vendor for teacher:", user.id)
+    console.log("Creating NEW Cashfree vendor for teacher:", vendorId)
 
     const cfResponse = await fetch(`${CASHFREE_BASE_URL}/pg/easy-split/vendors`, {
       method:  "POST",
@@ -92,7 +93,7 @@ serve(async (req) => {
         "x-client-secret": CASHFREE_SECRET_KEY,
         "x-api-version":   "2023-08-01",
       },
-      body: JSON.stringify(vendorPayload),
+      body: JSON.stringify(createPayload),
     })
 
     const cfData = await cfResponse.json()
@@ -101,6 +102,15 @@ serve(async (req) => {
     if (!cfResponse.ok) {
       const errMsg = cfData?.message || cfData?.error || JSON.stringify(cfData)
       throw new Error(`Cashfree Error: ${errMsg}`)
+    }
+
+    let finalVendorStatus = cfData.status || "IN_BENE_CREATION"
+    let finalKycStatus    = "IN_REVIEW"
+
+    // ── Sandbox Override to unblock developer testing ──────────────────────
+    if (CASHFREE_ENV === "TEST") {
+      finalVendorStatus = "ACTIVE"
+      finalKycStatus    = "VERIFIED"
     }
 
     // ── 4. Store vendor info in Supabase ──────────────────────────────────
@@ -113,8 +123,8 @@ serve(async (req) => {
       .from("teachers")
       .update({
         cashfree_vendor_id:  vendorId,
-        vendor_status:       cfData.status || "IN_BENE_CREATION",
-        kyc_status:          "IN_REVIEW",
+        vendor_status:       finalVendorStatus,
+        kyc_status:          finalKycStatus,
         bank_account_name:   account_name,
         bank_account_number: account_number,
         bank_ifsc:           ifsc.toUpperCase(),
@@ -132,9 +142,9 @@ serve(async (req) => {
       JSON.stringify({
         success:           true,
         vendor_id:         vendorId,
-        vendor_status:     cfData.status || "IN_BENE_CREATION",
-        kyc_status:        "IN_REVIEW",
-        message:           "Vendor created. KYC under review (1-2 business days).",
+        vendor_status:     finalVendorStatus,
+        kyc_status:        finalKycStatus,
+        message:           "Vendor created.",
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     )

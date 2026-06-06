@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_gradient_main"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ── Hero Header ─────────────────────────────────────── -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/bg_header_dark"
+            android:paddingTop="56dp"
+            android:paddingBottom="40dp"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="🏫"
+                android:textSize="52sp"
+                android:gravity="center"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:text="Welcome to FeesManager"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#F1F5F9"
+                android:gravity="center"
+                android:layout_marginBottom="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:text="Sign in to continue"
+                android:textSize="14sp"
+                android:textColor="#34D399"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- ── Tab Switcher: Sign In / Sign Up ─────────────────── -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg_input_modern"
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp">
+
+            <TextView
+                android:id="@+id/tabSignIn"
+                android:text="Sign In"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#F1F5F9"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tab_selected"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tabSignUp"
+                android:text="Sign Up"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#64748B"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <!-- ── Form Fields ──────────────────────────────────────── -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Name field (Sign Up only) -->
+            <TextView
+                android:id="@+id/labelName"
+                android:text="Full Name"
+                android:textColor="#94A3B8"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etName"
+                android:hint="Teacher or Student name"
+                android:textColor="#F1F5F9"
+                android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern"
+                android:padding="16dp"
+                android:inputType="textPersonName|textCapWords"
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Academy field (Sign Up only) -->
+            <TextView
+                android:id="@+id/labelAcademy"
+                android:text="Academy / Institute Name"
+                android:textColor="#94A3B8"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etAcademy"
+                android:hint="e.g. Bright Future Academy"
+                android:textColor="#F1F5F9"
+                android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern"
+                android:padding="16dp"
+                android:inputType="textCapWords"
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Role toggle (Sign Up only) -->
+            <LinearLayout
+                android:id="@+id/layoutRoleToggle"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="I am a:"
+                    android:textColor="#94A3B8"
+                    android:textSize="13sp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioGroup
+                    android:id="@+id/rgRole"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/rbTeacher"
+                        android:text="Teacher"
+                        android:textColor="#F1F5F9"
+                        android:textSize="14sp"
+                        android:buttonTint="#34D399"
+                        android:checked="true"
+                        android:layout_marginEnd="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioButton
+                        android:id="@+id/rbStudent"
+                        android:text="Student"
+                        android:textColor="#F1F5F9"
+                        android:textSize="14sp"
+                        android:buttonTint="#34D399"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Email -->
+            <TextView
+                android:text="Email Address"
+                android:textColor="#94A3B8"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:hint="your@email.com"
+                android:textColor="#F1F5F9"
+                android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern"
+                android:padding="16dp"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Password -->
+            <TextView
+                android:text="Password"
+                android:textColor="#94A3B8"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:hint="Min 6 characters"
+                android:textColor="#F1F5F9"
+                android:textColorHint="#475569"
+                android:background="@drawable/bg_input_modern"
+                android:padding="16dp"
+                android:inputType="textPassword"
+                android:textSize="15sp"
+                android:layout_marginBottom="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Primary Action Button -->
+            <Button
+                android:id="@+id/btnAction"
+                android:text="Sign In"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:backgroundTint="#22C55E"
+                android:stateListAnimator="@null"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Divider -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:background="#2D3F55"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"/>
+                <TextView
+                    android:text="  or continue with  "
+                    android:textColor="#475569"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:background="#2D3F55"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"/>
+            </LinearLayout>
+
+            <!-- Google Sign-In -->
+            <Button
+                android:id="@+id/btnGoogle"
+                android:text="  Continue with Google"
+                android:textAllCaps="false"
+                android:textColor="#0F172A"
+                android:textSize="15sp"
+                android:background="@drawable/bg_btn_white"
+                android:stateListAnimator="@null"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"/>
+
+            <!-- Loading indicator -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

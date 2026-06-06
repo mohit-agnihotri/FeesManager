@@ -1,7 +1,16 @@
 package com.example.feesmanager.ai.teacher
 
 import android.util.Log
-import com.example.feesmanager.ai.*
+import com.example.feesmanager.ai.engine.InsightEngine
+import com.example.feesmanager.ai.engine.LocalAnalyzer
+import com.example.feesmanager.ai.engine.PendingStudentInfo
+import com.example.feesmanager.ai.engine.TeacherDataContext
+import com.example.feesmanager.ai.models.AiChatMessage
+import com.example.feesmanager.ai.models.Priority
+import com.example.feesmanager.ai.models.PromptTemplates
+import com.example.feesmanager.ai.models.SuggestedAction
+import com.example.feesmanager.ai.network.GeminiClient
+import com.example.feesmanager.ai.network.GroqClient
 
 /**
  * TeacherAiRepository — Smart routing engine for the Teacher AI Agent.

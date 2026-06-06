@@ -1,8 +1,8 @@
 package com.example.feesmanager.data.repository
 
 import android.util.Log
-import com.example.feesmanager.data.FmResult
-import com.example.feesmanager.data.SupabaseManager
+import com.example.feesmanager.data.network.FmResult
+import com.example.feesmanager.data.network.SupabaseManager
 import com.example.feesmanager.data.model.AdvanceBalance
 import com.example.feesmanager.data.model.AdvanceEntry
 import com.example.feesmanager.data.model.FeeMonth
@@ -246,14 +246,15 @@ class StudentRepository {
                 )
             }
 
-            // Build advance balance with payment history
+            // Build advance balance — ONLY count payments where advance_amount > 0
             val advanceRemaining = response.advance_balance.toInt()
-            val totalPaid = payments.sumOf { it.amount.toInt() }
-            val advanceHistory = payments.mapIndexed { index, pay ->
+            val advancePayments  = payments.filter { it.advance_amount > 0 }  // ← only actual excess payments
+            val totalPaid        = advancePayments.sumOf { it.advance_amount.toInt() }
+            val advanceHistory   = advancePayments.mapIndexed { index, pay ->
                 val key = pay.id.ifEmpty { "pay_$index" }
                 key to AdvanceEntry(
-                    amount = pay.amount.toInt(),
-                    date = pay.created_at.take(10),
+                    amount  = pay.advance_amount.toInt(),   // ← show only the advance portion, not full payment
+                    date    = pay.created_at.take(10),
                     applied = 0
                 )
             }.toMap()
@@ -381,6 +382,7 @@ class StudentRepository {
     private data class PaymentHistoryRow(
         val id: String = "",
         val amount: Double = 0.0,
+        val advance_amount: Double = 0.0,  // ← only the excess that went to advance (0 = full payment covered fees)
         val payment_mode: String = "",
         val created_at: String = ""
     )

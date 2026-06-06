@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.feesmanager.AppPaymentConfig
-import com.example.feesmanager.data.FmResult
-import com.example.feesmanager.data.SupabaseManager
+import com.example.feesmanager.ui.payment.AppPaymentConfig
+import com.example.feesmanager.data.network.FmResult
+import com.example.feesmanager.data.network.SupabaseManager
 import com.example.feesmanager.data.model.FeeMonth
 import com.example.feesmanager.data.model.PaymentSummary
 import com.example.feesmanager.data.model.StudentPaymentInfo
@@ -100,6 +100,28 @@ class PayFeesViewModel : ViewModel() {
                 amountINR  = amountInINR,
                 onResult   = { result -> _cashfreeOrderResult.postValue(result) }
             )
+        }
+    }
+
+    /**
+     * Verifies a Cashfree payment on the server side.
+     * This is the PRIMARY path that actually records the payment in the database
+     * (payment_orders, payments, fee_records tables).
+     * Called from onPaymentVerify after Cashfree SDK confirms success.
+     */
+    fun verifyCashfreePayment(cashfreeOrderId: String) {
+        viewModelScope.launch {
+            cashfreeRepo.verifyPayment(cashfreeOrderId) { result ->
+                when (result) {
+                    is FmResult.Success -> {
+                        android.util.Log.d("PayFeesVM", "Payment verified on server: ${result.content}")
+                    }
+                    is FmResult.Error -> {
+                        android.util.Log.e("PayFeesVM", "Payment verification failed: ${result.message}")
+                    }
+                    else -> {}
+                }
+            }
         }
     }
 

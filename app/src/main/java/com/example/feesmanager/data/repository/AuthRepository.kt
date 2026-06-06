@@ -1,6 +1,6 @@
 package com.example.feesmanager.data.repository
 
-import com.example.feesmanager.data.SupabaseManager
+import com.example.feesmanager.data.network.SupabaseManager
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.providers.builtin.Email
 import io.github.jan.supabase.postgrest.postgrest

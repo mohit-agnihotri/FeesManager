@@ -1,7 +1,7 @@
 package com.example.feesmanager.data.repository
 
-import com.example.feesmanager.data.FmResult
-import com.example.feesmanager.data.SupabaseManager
+import com.example.feesmanager.data.network.FmResult
+import com.example.feesmanager.data.network.SupabaseManager
 import com.example.feesmanager.data.model.AdvanceStudentSummary
 import com.example.feesmanager.data.model.AnalyticsData
 import com.example.feesmanager.data.model.DashboardStats

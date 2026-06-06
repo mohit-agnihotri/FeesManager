@@ -1,14 +1,26 @@
 package com.example.feesmanager.data.repository
 
-import com.example.feesmanager.data.FmResult
-import com.example.feesmanager.data.SupabaseManager
+import android.util.Log
+import com.example.feesmanager.ui.payment.AppPaymentConfig
+import com.example.feesmanager.data.network.FmResult
+import com.example.feesmanager.data.network.SupabaseManager
 import com.example.feesmanager.data.model.FeeMonth
 import com.example.feesmanager.data.model.PaymentEntry
 import com.example.feesmanager.data.model.PaymentSummary
 import com.example.feesmanager.data.model.StudentPaymentInfo
+import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
+import io.ktor.client.HttpClient
+import io.ktor.client.request.header
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
+import io.ktor.client.statement.bodyAsText
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,7 +35,8 @@ import java.util.*
  */
 class FeesRepository {
 
-    private val db = SupabaseManager.client.postgrest
+    private val db         = SupabaseManager.client.postgrest
+    private val httpClient = HttpClient()
 
     // ─── Helper: Get enrollment ID ───────────────────────────────────────────
 
@@ -238,7 +251,7 @@ class FeesRepository {
             val isCashfreeActive = teacher.vendor_status == "ACTIVE"
 
             // Feature flag: check active provider — both paths kept for rollback
-            val isPaymentEnabled = if (com.example.feesmanager.AppPaymentConfig.isCashfree) {
+            val isPaymentEnabled = if (AppPaymentConfig.isCashfree) {
                 isCashfreeActive
             } else {
                 isRazorpayActive || hasUpi
@@ -258,76 +271,53 @@ class FeesRepository {
         }
     }
 
-    // ─── Monthly Rollover ──────────────────────────────────────────────────────
+    // ─── Monthly Rollover (Server-Side) ───────────────────────────────────────
+    //
+    // Calls the monthly-rollover Edge Function which:
+    //   1. Creates fee_records for the current month for ALL approved students
+    //   2. Auto-applies advance_balance to reduce pending dues
+    //   3. Deducts used advance from enrollments.advance_balance
+    // This is server-side so it always uses the SERVICE_ROLE_KEY (bypasses RLS).
 
     suspend fun performMonthlyRollover(
         teacherId: String,
         onResult: (FmResult<Int>) -> Unit
     ) {
-        try {
-            val currentMonth = SimpleDateFormat("yyyy-MM", Locale.getDefault()).format(Date())
-
-            // Get all approved enrollments with class info
-            val enrollments = db.from("enrollments")
-                .select(Columns.raw("id, class_id, teacher_classes(fee_amount)")) {
-                    filter {
-                        eq("teacher_id", teacherId)
-                        eq("status", "approved")
-                    }
-                }.decodeList<EnrollmentForRollover>()
-
-            var created = 0
-
-            for (enrollment in enrollments) {
-                // Check if record already exists for this month
-                val existing = db.from("fee_records")
-                    .select(Columns.raw("id")) {
-                        filter {
-                            eq("enrollment_id", enrollment.id)
-                            eq("month_key", currentMonth)
-                        }
-                    }.decodeSingleOrNull<IdRow>()
-
-                if (existing != null) continue
-
-                val classFee = enrollment.teacher_classes?.fee_amount?.toInt() ?: 0
-
-                // Fetch advance balance to pre-apply
-                val advBalance = try {
-                    db.from("enrollments").select(Columns.raw("advance_balance")) {
-                        filter { eq("id", enrollment.id) }
-                    }.decodeSingle<AdvanceRow>().advance_balance.toInt()
-                } catch (_: Exception) { 0 }
-
-                val appliedAdv = minOf(advBalance, classFee)
-                val paidAmt = appliedAdv.toDouble()
-                val newStatus = when {
-                    appliedAdv >= classFee -> "paid"
-                    appliedAdv > 0 -> "partial"
-                    else -> if (classFee > 0) "pending" else "paid"
+        withContext(Dispatchers.IO) {
+            try {
+                val session = SupabaseManager.client.auth.currentSessionOrNull()
+                val token   = session?.accessToken ?: run {
+                    onResult(FmResult.Error("Not logged in"))
+                    return@withContext
                 }
 
-                db.from("fee_records").insert(FeeRecordInsert(
-                    enrollment_id = enrollment.id,
-                    month_key = currentMonth,
-                    total_amount = classFee.toDouble(),
-                    paid_amount = paidAmt,
-                    status = newStatus
-                ))
+                val body = """{"teacher_id": "$teacherId"}"""
 
-                // Deduct advance used
-                if (appliedAdv > 0) {
-                    db.from("enrollments").update(AdvanceUpdate(advance_balance = (advBalance - appliedAdv).toDouble())) {
-                        filter { eq("id", enrollment.id) }
-                    }
+                val response = httpClient.post(AppPaymentConfig.FN_MONTHLY_ROLLOVER) {
+                    header("Authorization", "Bearer $token")
+                    contentType(ContentType.Application.Json)
+                    setBody(body)
                 }
 
-                created++
+                val text = response.bodyAsText()
+                Log.d("FeesRepo", "monthly-rollover response: $text")
+
+                if (response.status.value in 200..299) {
+                    // Parse created count from response
+                    val created = try {
+                        org.json.JSONObject(text).optInt("created", 0)
+                    } catch (_: Exception) { 0 }
+                    onResult(FmResult.Success(created))
+                } else {
+                    val errMsg = try {
+                        org.json.JSONObject(text).optString("error", "Rollover failed")
+                    } catch (_: Exception) { "Rollover failed" }
+                    onResult(FmResult.Error(errMsg))
+                }
+            } catch (e: Exception) {
+                Log.e("FeesRepo", "performMonthlyRollover failed", e)
+                onResult(FmResult.Error("Rollover failed: ${e.message}", e))
             }
-
-            onResult(FmResult.Success(created))
-        } catch (e: Exception) {
-            onResult(FmResult.Error("Rollover failed: ${e.message}", e))
         }
     }
 

@@ -1,7 +1,8 @@
 package com.example.feesmanager.ai.teacher
 
 import android.util.Log
-import com.example.feesmanager.ai.AiChatMessage
+import com.example.feesmanager.ai.models.AiChatMessage
+import com.example.feesmanager.ai.engine.TeacherDataContext
 import java.security.MessageDigest
 
 /**
