@@ -19,10 +19,10 @@ class AnnouncementsViewModel : ViewModel() {
     private val _postResult = MutableLiveData<FmResult<Unit>>()
     val postResult: LiveData<FmResult<Unit>> = _postResult
 
-    fun loadAnnouncements(teacherId: String) {
+    fun loadAnnouncements(teacherId: String, studentClass: String? = null) {
         _announcements.value = FmResult.Loading
         viewModelScope.launch {
-            announcementsRepo.getAnnouncements(teacherId) { _announcements.postValue(it) }
+            announcementsRepo.getAnnouncements(teacherId, studentClass) { _announcements.postValue(it) }
         }
     }
 

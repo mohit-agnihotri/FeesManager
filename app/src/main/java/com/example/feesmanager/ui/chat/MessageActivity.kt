@@ -331,6 +331,9 @@ class MessageActivity : BaseActivity() {
         // Message text
         bubble.addView(TextView(this).apply {
             text = msg.text; textSize = 14f; setTextColor(0xFFF1F5F9.toInt()); setLineSpacing(0f, 1.3f)
+            autoLinkMask = android.text.util.Linkify.WEB_URLS
+            movementMethod = android.text.method.LinkMovementMethod.getInstance()
+            setLinkTextColor(0xFF60A5FA.toInt())
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -372,8 +375,9 @@ class MessageActivity : BaseActivity() {
                 scaleType = ImageView.ScaleType.CENTER_CROP
                 GlideHelper.loadAvatarFresh(this, url)
                 setOnClickListener {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                    startActivity(intent)
+                    lifecycleScope.launch {
+                        FileViewerHelper.downloadAndOpenFile(this@MessageActivity, url)
+                    }
                 }
             }
         } else {

@@ -58,14 +58,23 @@
                 </LinearLayout>
 
                 <!-- 🔔 Announcements bell -->
-                <LinearLayout android:id="@+id/btnAnnouncementsBell" android:orientation="vertical"
-                    android:gravity="center" android:background="@drawable/ripple_card"
-                    android:padding="10dp" android:clickable="true" android:focusable="true"
+                <FrameLayout android:id="@+id/btnAnnouncementsBell"
                     android:layout_marginEnd="4dp"
+                    android:clickable="true" android:focusable="true"
+                    android:background="@drawable/ripple_card"
                     android:layout_width="44dp" android:layout_height="44dp">
-                    <TextView android:text="🔔" android:textSize="18sp" android:gravity="center"
+                    
+                    <TextView android:text="🔔" android:textSize="18sp"
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
+                        
+                    <View android:id="@+id/indicatorAnnouncements"
+                        android:layout_width="8dp" android:layout_height="8dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="8dp" android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_badge_red"
+                        android:visibility="visible"/>
+                </FrameLayout>
 
 <!-- Switch account button removed per UX requirements -->
             </LinearLayout>
@@ -171,24 +180,12 @@
 
                     <LinearLayout android:orientation="horizontal" android:layout_marginBottom="8dp"
                         android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:id="@+id/btnAnnouncements" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="📢" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/announcements" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
                         <LinearLayout android:id="@+id/btnMyAcademies" android:orientation="vertical"
                             android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginStart="5dp"
+                            android:padding="12dp" android:layout_weight="1"
                             android:clickable="true" android:focusable="true"
                             android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
+                            android:layout_width="match_parent" android:layout_height="wrap_content">
                             <TextView android:text="🏫" android:textSize="28sp" android:gravity="center"
                                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                             <TextView android:text="@string/my_academies" android:textColor="#94A3B8"

@@ -57,6 +57,10 @@ class ChatViewModel : ViewModel() {
         chatParams.value = ChatContext(teacherId, className = className, isClassChat = true)
     }
 
+    private fun refreshChat(context: ChatContext) {
+        chatParams.value = context.copy(refreshKey = System.currentTimeMillis())
+    }
+
     private val _avatars = MutableLiveData<Map<String, String>>(emptyMap())
     val avatars: LiveData<Map<String, String>> = _avatars
 
@@ -90,11 +94,17 @@ class ChatViewModel : ViewModel() {
             if (context.isClassChat) {
                 chatRepo.sendClassMessage(
                     context.teacherId, context.className!!, text, sender, senderName
-                ) { _sendResult.postValue(it) }
+                ) { 
+                    _sendResult.postValue(it)
+                    if (it is FmResult.Success) refreshChat(context)
+                }
             } else {
                 chatRepo.sendPersonalMessage(
                     context.teacherId, context.studentId!!, text, sender, senderName
-                ) { _sendResult.postValue(it) }
+                ) { 
+                    _sendResult.postValue(it)
+                    if (it is FmResult.Success) refreshChat(context)
+                }
             }
         }
     }
@@ -123,11 +133,17 @@ class ChatViewModel : ViewModel() {
                     if (ctx.isClassChat) {
                         chatRepo.sendClassMessage(
                             ctx.teacherId, ctx.className!!, finalMessageText, sender, senderName, attachmentUrl
-                        ) { _sendResult.postValue(it) }
+                        ) { 
+                            _sendResult.postValue(it)
+                            if (it is FmResult.Success) refreshChat(ctx)
+                        }
                     } else {
                         chatRepo.sendPersonalMessage(
                             ctx.teacherId, ctx.studentId!!, finalMessageText, sender, senderName, attachmentUrl
-                        ) { _sendResult.postValue(it) }
+                        ) { 
+                            _sendResult.postValue(it)
+                            if (it is FmResult.Success) refreshChat(ctx)
+                        }
                     }
                 } else if (uploadResult is FmResult.Error) {
                     _sendResult.postValue(FmResult.Error("Upload failed: ${uploadResult.message}"))
@@ -142,12 +158,14 @@ class ChatViewModel : ViewModel() {
     fun deleteMessageForEveryone(messageId: String) {
         viewModelScope.launch {
             chatRepo.deleteMessageForEveryone(messageId)
+            chatParams.value?.let { refreshChat(it) }
         }
     }
 
     fun deleteMessageForMe(messageId: String, myUserId: String, currentDeletedBy: List<String>) {
         viewModelScope.launch {
             chatRepo.deleteMessageForMe(messageId, myUserId, currentDeletedBy)
+            chatParams.value?.let { refreshChat(it) }
         }
     }
 
@@ -155,7 +173,8 @@ class ChatViewModel : ViewModel() {
         val teacherId: String,
         val studentId: String? = null,
         val className: String? = null,
-        val isClassChat: Boolean
+        val isClassChat: Boolean,
+        val refreshKey: Long = 0L
     )
 
     @kotlinx.serialization.Serializable

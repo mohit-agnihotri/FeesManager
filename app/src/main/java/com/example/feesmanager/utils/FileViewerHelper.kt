@@ -21,8 +21,8 @@ object FileViewerHelper {
                 val ext = fileUrl.substringAfterLast('.', "").substringBefore('?')
                 val fileName = "Document_${System.currentTimeMillis()}.${if (ext.isNotEmpty()) ext else "bin"}"
                 
-                // Use cache dir for temporary files
-                val downloadsDir = File(context.cacheDir, "downloads")
+                // Use public Downloads directory for permanent files
+                val downloadsDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS)
                 if (!downloadsDir.exists()) downloadsDir.mkdirs()
                 
                 val targetFile = File(downloadsDir, fileName)

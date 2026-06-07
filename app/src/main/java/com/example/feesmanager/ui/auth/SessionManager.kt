@@ -69,6 +69,9 @@ object SessionManager {
     fun getStudentTeacherId(context: Context): String? =
         SecurePrefs.get(context, "student").getString("teacherId", null)
 
+    fun getStudentClassName(context: Context): String? =
+        SecurePrefs.get(context, "student").getString("className", null)
+
     fun getTeacherName(context: Context): String? =
         SecurePrefs.get(context, "app").getString("teacherName", null)
 

@@ -52,11 +52,18 @@ class AnnouncementsActivity : BaseActivity() {
             tvTitle.text = "📢 Post Announcement"
             inputLayout.visibility = View.VISIBLE
             teacherId = SessionManager.getTeacherId(this) ?: run { finish(); return }
+            viewModel.loadAnnouncements(teacherId)
         } else {
             tvTitle.text = "📢 Announcements"
             inputLayout.visibility = View.GONE
             teacherId = SessionManager.getStudentTeacherId(this) ?: run {
                 toast("Not linked to any academy"); finish(); return
+            }
+            val studentClass = SessionManager.getStudentClassName(this)
+            viewModel.loadAnnouncements(teacherId, studentClass)
+            val studentId = SessionManager.getStudentId(this)
+            if (studentId != null) {
+                com.example.feesmanager.utils.UnreadBadgeHelper.markAnnouncementsAsRead(this, studentId)
             }
         }
 
@@ -67,7 +74,6 @@ class AnnouncementsActivity : BaseActivity() {
                 is FmResult.Error   -> toast("Failed to load announcements")
             }
         }
-        viewModel.loadAnnouncements(teacherId)
 
         btnPost.setOnClickListener {
             val text = etMessage.text.toString().trim()
@@ -158,6 +164,9 @@ class AnnouncementsActivity : BaseActivity() {
             })
             card.addView(TextView(this).apply {
                 text = ann.body; textSize = 15f; setTextColor(0xFFF1F5F9.toInt()); setLineSpacing(0f, 1.4f)
+                autoLinkMask = android.text.util.Linkify.WEB_URLS
+                movementMethod = android.text.method.LinkMovementMethod.getInstance()
+                setLinkTextColor(0xFF60A5FA.toInt())
             })
             val time = runCatching { sdf.format(
                 SimpleDateFormat(

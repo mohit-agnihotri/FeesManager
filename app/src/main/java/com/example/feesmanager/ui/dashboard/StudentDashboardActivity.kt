@@ -288,7 +288,9 @@ class StudentDashboardActivity : BaseActivity() {
             }
 
             // Class chat badge (class messages not sent by student)
-            val className = currentClass.removePrefix("Class ").trim()
+            val className = currentClass.removePrefix("Class ").trim().ifEmpty {
+                SessionManager.getStudentClassName(this@StudentDashboardActivity) ?: ""
+            }
             if (className.isNotEmpty() && currentTeacherId.isNotEmpty()) {
                 val classUnread = UnreadBadgeHelper.fetchClassUnreadForStudent(
                     this@StudentDashboardActivity, currentTeacherId, className, currentStudentId
@@ -296,6 +298,15 @@ class StudentDashboardActivity : BaseActivity() {
                 runCatching {
                     val classChatBtn = findViewById<View>(R.id.btnClassChat)
                     classChatBtn?.let { UnreadBadgeHelper.addBadge(this@StudentDashboardActivity, it, classUnread) }
+                }
+
+                // Announcements badge
+                val hasAnnouncements = UnreadBadgeHelper.hasUnreadAnnouncements(
+                    this@StudentDashboardActivity, currentTeacherId, className, currentStudentId
+                )
+                runCatching {
+                    val indicator = findViewById<View>(R.id.indicatorAnnouncements)
+                    indicator?.visibility = if (hasAnnouncements) View.VISIBLE else View.GONE
                 }
             }
         }
@@ -322,11 +333,7 @@ class StudentDashboardActivity : BaseActivity() {
                 startActivity(Intent(this, FeeCalendarActivity::class.java))
             }
         }
-        runCatching {
-            findViewById<View>(R.id.btnAnnouncements).withBounce {
-                startActivity(Intent(this, AnnouncementsActivity::class.java).putExtra("mode", "student"))
-            }
-        }
+
         runCatching {
             findViewById<View>(R.id.btnAnnouncementsBell).withBounce {
                 startActivity(Intent(this, AnnouncementsActivity::class.java).putExtra("mode", "student"))
@@ -393,7 +400,7 @@ class StudentDashboardActivity : BaseActivity() {
         statCards.forEachIndexed { i, v -> AnimUtil.scaleIn(v, (180 + i * 70).toLong()) }
         runCatching { AnimUtil.slideUp(findViewById(R.id.btnPay), 420) }
         val tiles = listOf(
-            R.id.btnHistory, R.id.btnCalendar, R.id.btnAnnouncements,
+            R.id.btnHistory, R.id.btnCalendar,
             R.id.btnMyAcademies, R.id.btnContactTeacher
         ).mapNotNull { runCatching { findViewById<View>(it) }.getOrNull() }
         AnimUtil.staggerIn(tiles, 60)

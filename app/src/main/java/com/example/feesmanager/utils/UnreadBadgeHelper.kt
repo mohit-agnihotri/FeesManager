@@ -222,4 +222,42 @@ object UnreadBadgeHelper {
         val class_name: String? = null,
         val student_id: String? = null
     )
+
+    // ── Announcements Read State ──────────────────────────────────────────────
+
+    fun markAnnouncementsAsRead(context: Context, studentId: String) {
+        val now = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
+            .apply { timeZone = TimeZone.getTimeZone("UTC") }
+            .format(Date())
+        context.getSharedPreferences("chat_prefs", Context.MODE_PRIVATE)
+            .edit().putString("read_announcements_$studentId", now).apply()
+    }
+
+    private fun getLastReadAnnouncementTime(context: Context, studentId: String): String {
+        return context.getSharedPreferences("chat_prefs", Context.MODE_PRIVATE)
+            .getString("read_announcements_$studentId", "2000-01-01T00:00:00.000Z")!!
+    }
+
+    suspend fun hasUnreadAnnouncements(context: Context, teacherId: String, studentClass: String, studentId: String): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val lastRead = getLastReadAnnouncementTime(context, studentId)
+                val rows = db.from("announcements").select(Columns.raw("id, created_at, target_class")) {
+                    filter {
+                        eq("teacher_id", teacherId)
+                        gt("created_at", lastRead)
+                    }
+                    order("created_at", Order.DESCENDING)
+                    limit(20)
+                }.decodeList<AnnouncementCountRow>()
+                
+                rows.any { it.target_class == "all" || it.target_class == studentClass }
+            } catch (_: Exception) {
+                false
+            }
+        }
+    }
+
+    @Serializable
+    private data class AnnouncementCountRow(val id: String, val created_at: String? = null, val target_class: String? = "all")
 }

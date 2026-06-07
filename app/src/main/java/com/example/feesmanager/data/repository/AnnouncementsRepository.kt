@@ -11,14 +11,20 @@ class AnnouncementsRepository {
 
     private val db = SupabaseManager.client.postgrest
 
-    suspend fun getAnnouncements(teacherId: String, onResult: (FmResult<List<Announcement>>) -> Unit) {
+    suspend fun getAnnouncements(teacherId: String, studentClass: String? = null, onResult: (FmResult<List<Announcement>>) -> Unit) {
         try {
             val response = db.from("announcements")
                 .select {
                     filter { eq("teacher_id", teacherId) }
                     order("created_at", Order.DESCENDING)
                 }.decodeList<AnnouncementRow>()
-            onResult(FmResult.Success(response.map { it.toAnnouncement() }))
+            val mapped = response.map { it.toAnnouncement() }
+            val filtered = if (studentClass != null) {
+                mapped.filter { it.targetClass == "all" || it.targetClass == studentClass }
+            } else {
+                mapped
+            }
+            onResult(FmResult.Success(filtered))
         } catch (e: Exception) {
             onResult(FmResult.Error("Failed: ${e.message}", e))
         }
