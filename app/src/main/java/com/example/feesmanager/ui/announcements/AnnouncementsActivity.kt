@@ -61,10 +61,6 @@ class AnnouncementsActivity : BaseActivity() {
             }
             val studentClass = SessionManager.getStudentClassName(this)
             viewModel.loadAnnouncements(teacherId, studentClass)
-            val studentId = SessionManager.getStudentId(this)
-            if (studentId != null) {
-                com.example.feesmanager.utils.UnreadBadgeHelper.markAnnouncementsAsRead(this, studentId)
-            }
         }
 
         viewModel.announcements.observe(this) { result ->
@@ -133,6 +129,13 @@ class AnnouncementsActivity : BaseActivity() {
     }
 
     private fun renderAnnouncements(list: List<Announcement>) {
+        if (!isTeacherMode) {
+            val studentId = SessionManager.getStudentId(this)
+            if (studentId != null) {
+                val maxTime = list.maxOfOrNull { it.createdAt }
+                com.example.feesmanager.utils.UnreadBadgeHelper.markAnnouncementsAsRead(this, studentId, maxTime)
+            }
+        }
         listLayout.removeAllViews()
         if (list.isEmpty()) {
             listLayout.addView(TextView(this).apply {

@@ -12,5 +12,9 @@ data class Teacher(
     val academyName: String             = "",
     val joinCode: String                = "",
     val upiId: String                   = "",
+    val phone: String?                  = null,
+    val quote: String?                  = null,
+    val qualifications: String?         = null,
+    val avatarUrl: String?              = null,
     val classFees: Map<String, String>  = emptyMap()
 )

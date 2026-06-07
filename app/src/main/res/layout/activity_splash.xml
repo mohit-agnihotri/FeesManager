@@ -4,9 +4,15 @@
     android:orientation="vertical" android:gravity="center"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView android:text="🏫" android:textSize="80sp" android:gravity="center"
-        android:layout_marginBottom="20dp"
-        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <ImageView
+        android:src="@drawable/ic_app_premium"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:layout_width="140dp" 
+        android:layout_height="140dp"
+        android:elevation="8dp"
+        android:background="@drawable/bg_circle_avatar"
+        android:clipToOutline="true"/>
 
     <TextView android:text="@string/app_name" android:textSize="28sp"
         android:textStyle="bold" android:textColor="#F1F5F9" android:gravity="center"

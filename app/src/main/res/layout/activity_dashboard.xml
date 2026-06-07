@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
 
-    <!-- ── Main Content (FrameLayout to support floating FAB) ── -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout android:background="#0A0F1E" android:orientation="vertical"
-            android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <!-- Header -->
             <LinearLayout android:orientation="horizontal"
-                android:background="@drawable/bg_header_dark"
-                android:paddingLeft="@dimen/header_padding_h"
-                android:paddingRight="@dimen/header_padding_h"
-                android:paddingTop="@dimen/header_padding_v"
-                android:paddingBottom="@dimen/header_padding_v"
+                android:background="@color/bg_header"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent" android:layout_height="wrap_content">
 
-                <!-- Hamburger -->
-                <LinearLayout android:id="@+id/btnHamburger" android:orientation="vertical"
-                    android:gravity="center" android:background="@drawable/ripple_card"
-                    android:padding="10dp" android:layout_marginEnd="12dp"
+                <ImageView
+                    android:id="@+id/btnHamburger"
+                    android:src="@drawable/ic_menu"
+                    app:tint="@color/text_primary"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:clickable="true" android:focusable="true"
-                    android:layout_width="44dp" android:layout_height="44dp">
-                    <TextView android:text="☰" android:textSize="20sp" android:gravity="center"
-                        android:textColor="#F1F5F9"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
+                    android:padding="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_width="40dp" android:layout_height="40dp"/>
 
-                <!-- ✅ NEW: Teacher Avatar — tappable to change photo -->
                 <ImageView
                     android:id="@+id/ivTeacherAvatar"
                     android:layout_width="46dp"
@@ -42,58 +43,37 @@
                     android:layout_marginEnd="12dp"
                     android:src="@drawable/ic_default_avatar"
                     android:background="@drawable/bg_circle_avatar"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Profile photo"/>
+                    android:clickable="true" android:focusable="true"
+                    android:scaleType="centerCrop"/>
 
-                <!-- Academy name + teacher name + join code -->
                 <LinearLayout android:orientation="vertical" android:layout_weight="1"
                     android:layout_width="0dp" android:layout_height="wrap_content">
                     <TextView android:id="@+id/tvAcademyName" android:text="Academy"
-                        android:textSize="@dimen/text_xl" android:textStyle="bold"
-                        android:textColor="#F1F5F9" android:maxLines="1" android:ellipsize="end"
+                        android:textSize="20sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:maxLines="1" android:ellipsize="end"
                         android:layout_width="match_parent" android:layout_height="wrap_content"/>
                     <TextView android:id="@+id/tvTeacherName" android:text="By Teacher"
-                        android:textColor="#94A3B8" android:textSize="@dimen/text_sm"
+                        android:textColor="@color/text_secondary" android:textSize="13sp"
                         android:layout_width="match_parent" android:layout_height="wrap_content"/>
-                    <LinearLayout android:orientation="horizontal"
-                        android:layout_marginTop="6dp" android:gravity="center_vertical"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content">
-                        <TextView android:id="@+id/tvJoinCode" android:text="Code: ------"
-                            android:textColor="#818CF8" android:textSize="@dimen/text_xs"
-                            android:background="@drawable/bg_pill"
-                            android:paddingLeft="10dp" android:paddingRight="10dp"
-                            android:paddingTop="3dp" android:paddingBottom="3dp"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:id="@+id/btnRegenJoinCode"
-                            android:text="🔄" android:textSize="14sp"
-                            android:layout_marginStart="6dp"
-                            android:clickable="true" android:focusable="true"
-                            android:background="@drawable/ripple_card"
-                            android:padding="4dp"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    </LinearLayout>
+                    <TextView android:id="@+id/tvJoinCode" android:text="Code: ------"
+                        android:textColor="@color/indigo_light" android:textSize="11sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
 
-                <!-- Join Requests button with badge -->
                 <FrameLayout
                     android:id="@+id/btnJoinRequests"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:background="@drawable/ripple_card">
-
-                    <TextView
-                        android:text="👥"
-                        android:textSize="22sp"
-                        android:gravity="center"
+                    android:background="?android:attr/selectableItemBackgroundBorderless">
+                    <ImageView
+                        android:src="@drawable/ic_groups"
+                        app:tint="@color/text_primary"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <!-- Badge indicator -->
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"/>
                     <TextView
                         android:id="@+id/tvJoinRequestsBadge"
                         android:layout_width="18dp"
@@ -105,259 +85,34 @@
                         android:textStyle="bold"
                         android:gravity="center"
                         android:visibility="gone"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="2dp"/>
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"/>
                 </FrameLayout>
             </LinearLayout>
 
-            <!-- Scrollable Body -->
-            <ScrollView android:layout_weight="1"
-                android:layout_width="match_parent" android:layout_height="0dp">
-                <LinearLayout android:orientation="vertical"
-                    android:paddingLeft="@dimen/screen_padding" android:paddingRight="@dimen/screen_padding"
-                    android:paddingTop="@dimen/screen_padding" android:paddingBottom="@dimen/screen_padding"
-                    android:layout_width="match_parent" android:layout_height="wrap_content">
+            <!-- Swipeable Pager Content -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
 
-                    <!-- Stats Row -->
-                    <LinearLayout android:orientation="horizontal" android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:orientation="vertical" android:background="@drawable/bg_card_indigo"
-                            android:padding="14dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="@string/students" android:textColor="#A5B4FC"
-                                android:textSize="@dimen/text_xs" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:id="@+id/tvTotalStudents" android:text="0"
-                                android:textColor="#E0E7FF" android:textSize="26sp" android:textStyle="bold"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical" android:background="@drawable/bg_card_green"
-                            android:padding="14dp" android:layout_weight="1"
-                            android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="@string/collected" android:textColor="#86EFAC"
-                                android:textSize="@dimen/text_xs" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:id="@+id/tvCollected" android:text="₹0"
-                                android:textColor="#DCFCE7" android:textSize="22sp" android:textStyle="bold"
-                                android:maxLines="1" android:ellipsize="end"
-                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical" android:background="@drawable/bg_card_red"
-                            android:padding="14dp" android:layout_weight="1" android:layout_marginStart="5dp"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="@string/pending" android:textColor="#FCA5A5"
-                                android:textSize="@dimen/text_xs" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:id="@+id/tvPending" android:text="₹0"
-                                android:textColor="#FEE2E2" android:textSize="17sp" android:textStyle="bold"
-                                android:maxLines="2" android:ellipsize="end"
-                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </LinearLayout>
+            <!-- Modern Bottom Navigation -->
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_header"
+                app:itemIconTint="@color/nav_item_color"
+                app:itemTextColor="@color/nav_item_color"
+                app:menu="@menu/bottom_nav_menu"/>
 
-                    <!-- Total Fees -->
-                    <LinearLayout android:orientation="horizontal"
-                        android:background="@drawable/bg_card_modern"
-                        android:padding="16dp" android:gravity="center_vertical"
-                        android:layout_marginBottom="16dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <TextView android:text="💰" android:textSize="20sp" android:layout_marginEnd="10dp"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:text="@string/total_fees" android:textColor="#94A3B8"
-                            android:textSize="@dimen/text_sm" android:layout_weight="1"
-                            android:layout_width="0dp" android:layout_height="wrap_content"/>
-                        <TextView android:id="@+id/tvTotalFees" android:text="₹0"
-                            android:textColor="#F1F5F9" android:textSize="@dimen/text_lg" android:textStyle="bold"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-                    <!-- Students Section -->
-                    <TextView android:text="@string/students" android:textColor="#475569"
-                        android:textSize="@dimen/text_xs" android:letterSpacing="0.15"
-                        android:layout_marginBottom="8dp"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-                    <LinearLayout android:orientation="horizontal" android:layout_marginBottom="8dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:id="@+id/addStudentBtn" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="➕" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/add_student" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout android:id="@+id/viewStudentBtn" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginStart="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="👁" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/view_all" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Fees Section -->
-                    <TextView android:text="@string/fees" android:textColor="#475569"
-                        android:textSize="@dimen/text_xs" android:letterSpacing="0.15"
-                        android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-                    <LinearLayout android:orientation="horizontal" android:layout_marginBottom="8dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:id="@+id/feesBtn" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="💸" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/record_payment" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="5dp">
-                            <LinearLayout android:id="@+id/btnStudentQueries" android:orientation="vertical"
-                                android:gravity="center" android:background="@drawable/ripple_card"
-                                android:padding="12dp"
-                                android:clickable="true" android:focusable="true"
-                                android:minHeight="@dimen/tile_min_height"
-                                android:layout_width="match_parent" android:layout_height="match_parent">
-                                <TextView android:text="💬" android:textSize="28sp" android:gravity="center"
-                                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="@string/class_chat" android:textColor="#94A3B8"
-                                    android:textSize="@dimen/text_xs" android:gravity="center"
-                                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            </LinearLayout>
-                        </FrameLayout>
-                    </LinearLayout>
-
-                    <LinearLayout android:orientation="horizontal" android:layout_marginBottom="8dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:id="@+id/btnSetFees" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="⚙️" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/set_class_fees" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout android:id="@+id/btnAnalytics" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginStart="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="📊" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/analytics" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout android:orientation="horizontal" android:layout_marginBottom="8dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:id="@+id/btnAdvanceStudents" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="💳" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/advances" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout android:id="@+id/btnPaymentConnect" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginStart="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="💳" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:id="@+id/tvPaymentStatus" android:text="Connect Pay"
-                                android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Tools Section -->
-                    <TextView android:text="@string/tools" android:textColor="#475569"
-                        android:textSize="@dimen/text_xs" android:letterSpacing="0.15"
-                        android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-                    <LinearLayout android:orientation="horizontal" android:layout_marginBottom="8dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:id="@+id/btnAttendance" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="📋" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/attendance" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout android:id="@+id/btnAnnouncements" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginStart="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="📢" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/announcements" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout android:orientation="horizontal" android:layout_marginBottom="20dp"
-                        android:layout_width="match_parent" android:layout_height="wrap_content">
-                        <LinearLayout android:id="@+id/btnBackup" android:orientation="vertical"
-                            android:gravity="center" android:background="@drawable/ripple_card"
-                            android:padding="12dp" android:layout_weight="1" android:layout_marginEnd="5dp"
-                            android:clickable="true" android:focusable="true"
-                            android:minHeight="@dimen/tile_min_height"
-                            android:layout_width="0dp" android:layout_height="wrap_content">
-                            <TextView android:text="💾" android:textSize="28sp" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                            <TextView android:text="@string/export_data" android:textColor="#94A3B8"
-                                android:textSize="@dimen/text_xs" android:gravity="center"
-                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <!-- Empty spacer to keep grid balanced -->
-                        <View android:layout_weight="1" android:layout_marginStart="5dp"
-                            android:layout_width="0dp" android:layout_height="1dp"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-            </ScrollView>
         </LinearLayout>
 
-        <!-- ✅ AI Assistant FAB — floats on top of content -->
         <FrameLayout android:id="@+id/fabAiAssistant"
             android:layout_width="56dp" android:layout_height="56dp"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="20dp" android:layout_marginBottom="24dp"
+            android:layout_marginEnd="20dp" android:layout_marginBottom="80dp"
             android:background="@drawable/bg_ai_fab"
             android:elevation="8dp"
             android:clickable="true" android:focusable="true">
@@ -368,7 +123,6 @@
 
     </FrameLayout>
 
-    <!-- ── Navigation Drawer ──────────────────────────────────── -->
     <include layout="@layout/nav_drawer_teacher" android:id="@+id/navDrawerView"
         android:layout_gravity="start"
         android:layout_width="280dp" android:layout_height="match_parent"/>

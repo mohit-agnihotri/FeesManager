@@ -9,6 +9,8 @@ import com.example.feesmanager.data.model.FeeMonth
 import com.example.feesmanager.data.model.Student
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
+import android.content.Context
+import com.google.gson.Gson
 import kotlinx.serialization.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
@@ -208,10 +210,20 @@ class StudentRepository {
     // ── Single student fetch (with fee data) ──────────────────────────────────
 
     suspend fun getStudent(
+        context: Context,
         teacherId: String,
         studentId: String,
         onResult: (FmResult<Student>) -> Unit
     ) {
+        val prefs = context.getSharedPreferences("fm_dashboard_cache", Context.MODE_PRIVATE)
+        val cachedJson = prefs.getString("student_${teacherId}_${studentId}", null)
+        if (cachedJson != null) {
+            try {
+                val cachedStudent = Gson().fromJson(cachedJson, Student::class.java)
+                onResult(FmResult.Success(cachedStudent))
+            } catch (_: Exception) {}
+        }
+        
         try {
             val response = db.from("enrollments")
                 .select(Columns.raw(
@@ -277,6 +289,8 @@ class StudentRepository {
                 advanceBalance = advanceBalance,
                 fees = feesMap
             )
+
+            prefs.edit().putString("student_${teacherId}_${studentId}", Gson().toJson(student)).apply()
 
             onResult(FmResult.Success(student))
         } catch (e: Exception) {

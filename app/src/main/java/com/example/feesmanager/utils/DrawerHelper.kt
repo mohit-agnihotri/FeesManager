@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.view.Gravity
+import androidx.core.view.GravityCompat
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -42,7 +43,7 @@ object DrawerHelper {
         fun nav(id: Int, block: () -> Unit) {
             runCatching {
                 drawerView.findViewById<View>(id).setOnClickListener {
-                    drawer.closeDrawer(Gravity.START)
+                    drawer.closeDrawer(GravityCompat.START)
                     it.postDelayed({ block() }, 250)
                 }
             }
@@ -110,7 +111,7 @@ object DrawerHelper {
         // Language switch in drawer (reuse navAbout slot if exists, else navSettings long press)
         runCatching {
             drawerView.findViewById<View>(R.id.navLanguage).setOnClickListener {
-                drawer.closeDrawer(Gravity.START)
+                drawer.closeDrawer(GravityCompat.START)
                 it.postDelayed({ showLanguagePicker(activity) }, 250)
             }
         }
@@ -146,7 +147,7 @@ object DrawerHelper {
         fun nav(id: Int, block: () -> Unit) {
             runCatching {
                 drawerView.findViewById<View>(id).setOnClickListener {
-                    drawer.closeDrawer(Gravity.START)
+                    drawer.closeDrawer(GravityCompat.START)
                     it.postDelayed({ block() }, 250)
                 }
             }
@@ -198,7 +199,7 @@ object DrawerHelper {
         // Language switch
         runCatching {
             drawerView.findViewById<View>(R.id.navLanguage).setOnClickListener {
-                drawer.closeDrawer(Gravity.START)
+                drawer.closeDrawer(GravityCompat.START)
                 it.postDelayed({ showLanguagePicker(activity) }, 250)
             }
         }
@@ -238,7 +239,7 @@ object DrawerHelper {
         runCatching { setNavItem(drawerView, R.id.navLanguage, "🌐", "Language / भाषा") }
     }
 
-    fun openDrawer(drawer: DrawerLayout) = drawer.openDrawer(Gravity.START)
+    fun openDrawer(drawer: DrawerLayout) = drawer.openDrawer(GravityCompat.START)
 
     /** Inline language picker — no new activity needed */
     fun showLanguagePicker(activity: Activity) {

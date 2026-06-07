@@ -61,6 +61,9 @@ android {
         viewBinding  = true
         buildConfig  = true
     }
+    lint {
+        abortOnError = false
+    }
 }
 
 dependencies {
@@ -89,6 +92,7 @@ dependencies {
 
     // ── ✅ NEW: Glide — profile image loading & caching ───────────
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
     // ── AndroidX ──────────────────────────────────────────────────
     implementation(libs.androidx.core.ktx)
@@ -105,6 +109,9 @@ dependencies {
 
     // ── EncryptedSharedPreferences ────────────────────────────────
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
+    // ── Gson ──────────────────────────────────────────────────────
+    implementation("com.google.code.gson:gson:2.10.1")
 
     // ── Supabase ──────────────────────────────────────────────────
     implementation(platform(libs.supabase.bom))

@@ -1,8 +1,9 @@
 package com.example.feesmanager.ui.dashboard
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.feesmanager.data.network.FmResult
 import com.example.feesmanager.data.model.AnalyticsData
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 /**
  * DashboardViewModel — Updated for Supabase (Coroutines and Relational logic).
  */
-class DashboardViewModel : ViewModel() {
+class DashboardViewModel(application: Application) : AndroidViewModel(application) {
 
     private val dashboardRepo = DashboardRepository()
 
@@ -30,11 +31,15 @@ class DashboardViewModel : ViewModel() {
         _profile.value = FmResult.Loading
 
         viewModelScope.launch {
-            dashboardRepo.getDashboardStats(teacherId) { result ->
-                _stats.postValue(result)
+            launch {
+                dashboardRepo.getDashboardStats(getApplication(), teacherId) { result ->
+                    _stats.postValue(result)
+                }
             }
-            dashboardRepo.getTeacherProfile(teacherId) { result ->
-                _profile.postValue(result)
+            launch {
+                dashboardRepo.getTeacherProfile(getApplication(), teacherId) { result ->
+                    _profile.postValue(result)
+                }
             }
         }
     }

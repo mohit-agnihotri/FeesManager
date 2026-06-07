@@ -8,6 +8,8 @@ import com.example.feesmanager.data.model.DashboardStats
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
+import android.content.Context
+import com.google.gson.Gson
 import kotlinx.serialization.Serializable
 
 /**
@@ -21,9 +23,22 @@ class DashboardRepository {
     // ─── Dashboard Stats ──────────────────────────────────────────────────────
 
     suspend fun getDashboardStats(
+        context: Context,
         teacherId: String,
         onResult: (FmResult<DashboardStats>) -> Unit
     ) {
+        val prefs = context.getSharedPreferences("fm_dashboard_cache", Context.MODE_PRIVATE)
+        val cachedStr = prefs.getString("stats_$teacherId", null)
+        if (cachedStr != null) {
+            try {
+                val parts = cachedStr.split(",")
+                if (parts.size >= 4) {
+                    val cachedStats = DashboardStats(parts[0].toInt(), parts[1].toInt(), parts[2].toInt(), parts[3].toInt())
+                    onResult(FmResult.Success(cachedStats))
+                }
+            } catch (_: Exception) {}
+        }
+
         try {
             // 1. All enrollments — single query for both approved count and fee aggregation
             val allEnrollments = db.from("enrollments")
@@ -53,12 +68,16 @@ class DashboardRepository {
 
             val pending = totalDue - collected
 
-            onResult(FmResult.Success(DashboardStats(
+            val stats = DashboardStats(
                 totalStudents = studentsCount,
                 totalCollectedFees = collected,
                 totalPendingFees = pending,
                 joinPending = pendingCount
-            )))
+            )
+            
+            prefs.edit().putString("stats_$teacherId", "${stats.totalStudents},${stats.totalCollectedFees},${stats.totalPendingFees},${stats.joinPending}").apply()
+            
+            onResult(FmResult.Success(stats))
         } catch (e: Exception) {
             onResult(FmResult.Error(e.message ?: "Failed to load dashboard stats", e))
         }
@@ -67,20 +86,35 @@ class DashboardRepository {
     // ─── Teacher Profile ───────────────────────────────────────────────────────
 
     suspend fun getTeacherProfile(
+        context: Context,
         teacherId: String,
         onResult: (FmResult<Triple<String, String, String>>) -> Unit
     ) {
+        val prefs = context.getSharedPreferences("fm_dashboard_cache", Context.MODE_PRIVATE)
+        val cachedStr = prefs.getString("profile_$teacherId", null)
+        if (cachedStr != null) {
+            try {
+                val parts = cachedStr.split("||")
+                if (parts.size >= 3) {
+                    onResult(FmResult.Success(Triple(parts[0], parts[1], parts[2])))
+                }
+            } catch (_: Exception) {}
+        }
+        
         try {
             val teacher = db.from("teachers")
                 .select(Columns.raw("*, profiles!inner(full_name)")) {
                     filter { eq("id", teacherId) }
                 }.decodeSingle<TeacherWithProfile>()
 
-            onResult(FmResult.Success(Triple(
+            val profileData = Triple(
                 teacher.profiles.full_name,
                 teacher.academy_name,
                 teacher.join_code ?: ""
-            )))
+            )
+            prefs.edit().putString("profile_$teacherId", "${profileData.first}||${profileData.second}||${profileData.third}").apply()
+            
+            onResult(FmResult.Success(profileData))
         } catch (e: Exception) {
             onResult(FmResult.Error("Profile load failed: ${e.message}", e))
         }

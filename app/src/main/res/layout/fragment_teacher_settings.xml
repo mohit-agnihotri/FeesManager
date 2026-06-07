@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header -->
+        <TextView android:text="Settings" android:textColor="@color/text_primary" android:textSize="24sp" android:textStyle="bold" android:layout_marginBottom="24dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+        <!-- Profile / Account -->
+        <TextView android:text="ACCOUNT" android:textColor="@color/text_muted" android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <!-- Edit Profile (Placeholder for future) -->
+                <LinearLayout android:id="@+id/btnEditProfile" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:src="@drawable/ic_person_placeholder" app:tint="@color/indigo_light" android:layout_width="24dp" android:layout_height="24dp"/>
+                    <TextView android:text="Edit Profile" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_marginStart="16dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <ImageView android:src="@drawable/ic_arrow_right" app:tint="@color/text_muted" android:layout_width="20dp" android:layout_height="20dp"/>
+                </LinearLayout>
+                <View android:background="#1E293B" android:layout_marginStart="56dp" android:layout_width="match_parent" android:layout_height="1dp"/>
+                <LinearLayout android:id="@+id/btnSetFees" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:src="@drawable/ic_payment" app:tint="@color/indigo_light" android:layout_width="24dp" android:layout_height="24dp"/>
+                    <TextView android:text="Set Class Fees" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_marginStart="16dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <ImageView android:src="@drawable/ic_arrow_right" app:tint="@color/text_muted" android:layout_width="20dp" android:layout_height="20dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Appearance -->
+        <TextView android:text="APPEARANCE" android:textColor="@color/text_muted" android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+            <LinearLayout android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:text="Dark Mode" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                <Switch android:id="@+id/switchDarkMode" android:checked="true" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- System -->
+        <TextView android:text="SYSTEM" android:textColor="@color/text_muted" android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:id="@+id/rowLanguage" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Language" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/tvCurrentLang" android:text="English" android:textColor="@color/indigo_light" android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <View android:background="#1E293B" android:layout_width="match_parent" android:layout_height="1dp"/>
+                <LinearLayout android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Notifications" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <Switch android:id="@+id/switchNotifications" android:checked="true" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <View android:background="#1E293B" android:layout_width="match_parent" android:layout_height="1dp"/>
+                <LinearLayout android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Notification Sound" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <Switch android:id="@+id/switchSound" android:checked="true" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <View android:background="#1E293B" android:layout_width="match_parent" android:layout_height="1dp"/>
+                <LinearLayout android:id="@+id/btnBackup" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:src="@drawable/ic_backup" app:tint="@color/indigo_light" android:layout_width="24dp" android:layout_height="24dp"/>
+                    <TextView android:text="Data Backup" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_marginStart="16dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <ImageView android:src="@drawable/ic_arrow_right" app:tint="@color/text_muted" android:layout_width="20dp" android:layout_height="20dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Security -->
+        <TextView android:text="SECURITY" android:textColor="@color/text_muted" android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:id="@+id/rowChangePassword" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Change Password" android:textColor="@color/text_primary" android:textSize="16sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <ImageView android:src="@drawable/ic_arrow_right" app:tint="@color/text_muted" android:layout_width="20dp" android:layout_height="20dp"/>
+                </LinearLayout>
+                <View android:background="#1E293B" android:layout_width="match_parent" android:layout_height="1dp"/>
+                <LinearLayout android:id="@+id/rowLogoutAll" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Logout from all devices" android:textColor="@color/red" android:textSize="16sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <View android:background="#1E293B" android:layout_width="match_parent" android:layout_height="1dp"/>
+                <LinearLayout android:id="@+id/btnLogout" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Log Out" android:textColor="@color/red" android:textSize="16sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,8 +1,9 @@
 package com.example.feesmanager.ui.dashboard
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.feesmanager.data.model.Student
 import com.example.feesmanager.data.network.FmResult
@@ -14,7 +15,7 @@ import kotlinx.coroutines.launch
  * StudentDashboardViewModel — Migrated to Supabase and Coroutines.
  * Provides real-time student data and handles automated monthly rollover logic.
  */
-class StudentDashboardViewModel : ViewModel() {
+class StudentDashboardViewModel(application: Application) : AndroidViewModel(application) {
 
     private val studentRepo = StudentRepository()
     private val feesRepo    = FeesRepository()
@@ -29,7 +30,7 @@ class StudentDashboardViewModel : ViewModel() {
     fun loadStudentData(teacherId: String, studentId: String) {
         _student.value = FmResult.Loading
         viewModelScope.launch {
-            studentRepo.getStudent(teacherId, studentId) { result ->
+            studentRepo.getStudent(getApplication(), teacherId, studentId) { result ->
                 _student.postValue(result)
             }
         }

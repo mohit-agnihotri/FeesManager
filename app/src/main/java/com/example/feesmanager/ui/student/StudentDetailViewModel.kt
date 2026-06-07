@@ -1,8 +1,9 @@
 package com.example.feesmanager.ui.student
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.feesmanager.data.network.FmResult
 import com.example.feesmanager.data.model.Student
@@ -14,7 +15,7 @@ import kotlinx.coroutines.launch
  * Handles one-time and real-time student data for profile/advance/history views.
  * Binds lifecycle-aware UI state to the relational PostgreSQL backend.
  */
-class StudentDetailViewModel : ViewModel() {
+class StudentDetailViewModel(application: Application) : AndroidViewModel(application) {
 
     private val studentRepo = StudentRepository()
 
@@ -30,7 +31,7 @@ class StudentDetailViewModel : ViewModel() {
     fun loadStudent(teacherId: String, studentId: String) {
         _student.value = FmResult.Loading
         viewModelScope.launch {
-            studentRepo.getStudent(teacherId, studentId) { result ->
+            studentRepo.getStudent(getApplication(), teacherId, studentId) { result ->
                 _student.postValue(result)
             }
         }

@@ -191,7 +191,8 @@ class ClassChatActivity : BaseActivity() {
     }
 
     private fun renderMessages(messages: List<ChatMessage>) {
-        UnreadBadgeHelper.markAsRead(this, senderId, className)
+        val maxTime = messages.maxOfOrNull { it.timestamp }
+        UnreadBadgeHelper.markAsRead(this, senderId, className, maxTime)
         container.removeAllViews()
         lastDay = ""
         val visibleMessages = messages.filter { senderId !in it.deletedBy }
@@ -261,6 +262,17 @@ class ClassChatActivity : BaseActivity() {
                     iv.visibility = View.VISIBLE
                     tv.visibility = View.GONE
                     GlideHelper.loadAvatarFresh(iv, photoUrl)
+                    iv.setOnClickListener {
+                        val d = android.app.Dialog(this@ClassChatActivity, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+                        val fullIv = ImageView(this@ClassChatActivity).apply {
+                            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                            scaleType = ImageView.ScaleType.FIT_CENTER
+                        }
+                        GlideHelper.loadAvatarFresh(fullIv, photoUrl)
+                        d.setContentView(fullIv)
+                        fullIv.setOnClickListener { d.dismiss() }
+                        d.show()
+                    }
                 } else {
                     iv.visibility = View.GONE
                     tv.visibility = View.VISIBLE

@@ -78,12 +78,14 @@ object UnreadBadgeHelper {
             .getString("read_${readerId}_${chatId}", "2000-01-01T00:00:00.000Z")!!
     }
 
-    fun markAsRead(context: Context, readerId: String, chatId: String) {
-        val now = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
-            .apply { timeZone = TimeZone.getTimeZone("UTC") }
-            .format(Date())
+    fun markAsRead(context: Context, readerId: String, chatId: String, latestTimestamp: String? = null) {
+        val timeToSave = latestTimestamp ?: run {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
+                .apply { timeZone = TimeZone.getTimeZone("UTC") }
+                .format(Date())
+        }
         context.getSharedPreferences("chat_prefs", Context.MODE_PRIVATE)
-            .edit().putString("read_${readerId}_${chatId}", now).apply()
+            .edit().putString("read_${readerId}_${chatId}", timeToSave).apply()
     }
 
     private fun filterUnreadLocally(context: Context, readerId: String, rows: List<MessageCountRow>): Int {
@@ -225,12 +227,14 @@ object UnreadBadgeHelper {
 
     // ── Announcements Read State ──────────────────────────────────────────────
 
-    fun markAnnouncementsAsRead(context: Context, studentId: String) {
-        val now = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
-            .apply { timeZone = TimeZone.getTimeZone("UTC") }
-            .format(Date())
+    fun markAnnouncementsAsRead(context: Context, studentId: String, latestTimestamp: String? = null) {
+        val timeToSave = latestTimestamp ?: run {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
+                .apply { timeZone = TimeZone.getTimeZone("UTC") }
+                .format(Date())
+        }
         context.getSharedPreferences("chat_prefs", Context.MODE_PRIVATE)
-            .edit().putString("read_announcements_$studentId", now).apply()
+            .edit().putString("read_announcements_$studentId", timeToSave).apply()
     }
 
     private fun getLastReadAnnouncementTime(context: Context, studentId: String): String {

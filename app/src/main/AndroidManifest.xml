@@ -14,9 +14,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_app_premium"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_app_premium"
         android:supportsRtl="true"
         android:theme="@style/Theme.FeesManager"
         tools:targetApi="31">
@@ -58,6 +58,9 @@
         <!-- Language / Settings -->
         <activity android:name=".ui.auth.LanguageSelectActivity"  android:exported="false" />
         <activity android:name=".ui.settings.SettingsActivity"        android:exported="false" />
+        <activity android:name=".ui.profile.EditProfileActivity"        android:exported="false" />
+        <activity android:name=".ui.profile.StudentEditProfileActivity" android:exported="false" />
+        <activity android:name=".ui.student.AboutTeacherActivity" android:exported="false" />
         <!-- Cashfree payment setup screen (NEW — active when AppPaymentConfig.isCashfree) -->
         <activity android:name=".ui.payment.CashfreeOnboardingActivity" android:exported="false" />
 

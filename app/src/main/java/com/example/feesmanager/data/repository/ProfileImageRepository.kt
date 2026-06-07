@@ -61,8 +61,9 @@ class ProfileImageRepository {
                 upsert = true   // overwrite if file already exists
             }
 
-            // 5. Build public URL
-            val publicUrl = storage.from("avatars").publicUrl(storagePath)
+            // 5. Build public URL with timestamp to bust Glide cache
+            val baseUrl = storage.from("avatars").publicUrl(storagePath)
+            val publicUrl = "$baseUrl?t=${System.currentTimeMillis()}"
 
             // 6. Persist URL in profiles table
             db.from("profiles").update(mapOf("avatar_url" to publicUrl)) {

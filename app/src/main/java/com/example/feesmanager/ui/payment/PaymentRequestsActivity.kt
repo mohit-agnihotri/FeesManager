@@ -26,7 +26,7 @@ class PaymentRequestsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment_requests)
-        listLayout = findViewById(R.id.listLayout)
+        listLayout = findViewById(R.id.requestList)
 
         val teacherId = SessionManager.getTeacherId(this)
         if (teacherId == null) {

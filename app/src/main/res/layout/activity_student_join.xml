@@ -7,7 +7,15 @@
     <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
 
         <LinearLayout android:orientation="vertical" android:gravity="center" android:background="@drawable/bg_header_dark" android:paddingTop="40dp" android:paddingBottom="24dp" android:paddingLeft="24dp" android:paddingRight="24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-            <TextView android:text="🎓" android:textSize="48sp" android:gravity="center" android:layout_marginBottom="8dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <ImageView
+                android:src="@drawable/ic_app_premium"
+                android:layout_marginBottom="12dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="4dp"
+                android:background="@drawable/bg_circle_avatar"
+                android:clipToOutline="true"
+                android:layout_gravity="center"/>
             <TextView android:text="Join Academy" android:textSize="22sp" android:textStyle="bold" android:textColor="#F1F5F9" android:gravity="center" android:layout_marginBottom="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
             <TextView android:text="Enter your details and join code" android:textSize="14sp" android:textColor="#64748B" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -28,7 +36,7 @@
 
             <Button
                 android:id="@+id/btnJoin"
-                android:text="✅ Join Academy"
+                android:text="Join Academy"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="16sp"

@@ -221,7 +221,8 @@ class MessageActivity : BaseActivity() {
     }
 
     private fun renderMessages(messages: List<ChatMessage>) {
-        UnreadBadgeHelper.markAsRead(this, senderId, studentId)
+        val maxTime = messages.maxOfOrNull { it.timestamp }
+        UnreadBadgeHelper.markAsRead(this, senderId, studentId, maxTime)
         container.removeAllViews()
         lastMessageDate = ""
         val visibleMessages = messages.filter { senderId !in it.deletedBy }
@@ -279,7 +280,7 @@ class MessageActivity : BaseActivity() {
             val lp = LinearLayout.LayoutParams(32.dp, 32.dp).apply { setMargins(0, 4, 8, 0) }
             val photoToUse = otherPhotoUrl ?: viewModel.avatars.value.orEmpty()[msg.sender]
             if (photoToUse != null && photoToUse.isNotEmpty()) {
-                val iv = ImageView(this).apply {
+                val iv = ImageView(this@MessageActivity).apply {
                     layoutParams = lp
                     scaleType = ImageView.ScaleType.CENTER_CROP
                     background = resources.getDrawable(R.drawable.bg_avatar_circle, null)
@@ -287,6 +288,17 @@ class MessageActivity : BaseActivity() {
                 }
                 wrapper.addView(iv)
                 GlideHelper.loadAvatarFresh(iv, photoToUse)
+                iv.setOnClickListener {
+                    val d = android.app.Dialog(this@MessageActivity, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+                    val fullIv = ImageView(this@MessageActivity).apply {
+                        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                        scaleType = ImageView.ScaleType.FIT_CENTER
+                    }
+                    GlideHelper.loadAvatarFresh(fullIv, photoToUse)
+                    d.setContentView(fullIv)
+                    fullIv.setOnClickListener { d.dismiss() }
+                    d.show()
+                }
             } else {
                 val av = TextView(this).apply {
                     text = msg.senderName.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
