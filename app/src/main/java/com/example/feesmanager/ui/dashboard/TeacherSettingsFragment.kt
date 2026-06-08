@@ -45,10 +45,12 @@ class TeacherSettingsFragment : Fragment(R.layout.fragment_teacher_settings) {
                 .setTitle("Log Out")
                 .setMessage("Are you sure you want to log out?")
                 .setPositiveButton("Logout") { _, _ ->
+                    val ctx = requireContext()
+                    val activity = requireActivity()
                     lifecycleScope.launch {
-                        SessionManager.logoutTeacher(requireContext())
-                        startActivity(Intent(requireContext(), RoleSelectActivity::class.java))
-                        requireActivity().finish()
+                        SessionManager.logoutTeacher(ctx)
+                        startActivity(Intent(ctx, com.example.feesmanager.ui.auth.LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                        activity.finish()
                     }
                 }
                 .setNegativeButton("Cancel", null)
@@ -123,15 +125,17 @@ class TeacherSettingsFragment : Fragment(R.layout.fragment_teacher_settings) {
                 .setTitle("Logout from all devices")
                 .setMessage("This will sign you out everywhere. Continue?")
                 .setPositiveButton("Logout") { _, _ ->
+                    val ctx = requireContext()
+                    val activity = requireActivity()
                     lifecycleScope.launch {
                         try {
                             SupabaseManager.client.auth.signOut()
-                            SessionManager.logoutTeacher(requireContext())
-                            SessionManager.logoutStudent(requireContext())
-                            startActivity(Intent(requireContext(), SplashActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-                            requireActivity().finish()
+                            SessionManager.logoutTeacher(ctx)
+                            SessionManager.logoutStudent(ctx)
+                            startActivity(Intent(ctx, com.example.feesmanager.ui.auth.LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                            activity.finish()
                         } catch (e: Exception) {
-                            Toast.makeText(requireContext(), "Logout failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(ctx, "Logout failed: ${e.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
