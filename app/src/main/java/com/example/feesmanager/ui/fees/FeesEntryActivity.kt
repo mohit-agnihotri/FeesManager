@@ -71,10 +71,12 @@ class FeesEntryActivity : BaseActivity() {
         tvPendingAmt   = findViewById(R.id.tvPendingAmount)
         btnFillPending = findViewById(R.id.btnFillPending)
 
-        modeSpinner.adapter = ArrayAdapter(
-            this, R.layout.dropdown_item,
-            listOf("Cash 💵", "Online 💳", "UPI 📲", "Cheque 📄")
+        val adapter = ArrayAdapter(
+            this, R.layout.spinner_selected_item,
+            listOf("Cash 💵", "Online 💳", "UPI 📲")
         )
+        adapter.setDropDownViewResource(R.layout.dropdown_item)
+        modeSpinner.adapter = adapter
 
         // Load all students
         viewModel.students.observe(this) { result ->

@@ -72,8 +72,9 @@ class AttendanceActivity : BaseActivity() {
         lifecycleScope.launch {
             val classes = ChatRepository().getTeacherClasses(teacherId)
             val options = listOf("All") + classes
-            classSpinner.adapter =
-                ArrayAdapter(this@AttendanceActivity, R.layout.dropdown_item, options)
+            val adapter = ArrayAdapter(this@AttendanceActivity, R.layout.spinner_selected_item, options)
+            adapter.setDropDownViewResource(R.layout.dropdown_item)
+            classSpinner.adapter = adapter
             classSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
                     selectedClass = options[pos]
@@ -132,11 +133,11 @@ class AttendanceActivity : BaseActivity() {
                         }
                     }.decodeList<EnrollmentClassRow>()
 
-                // Map enrollmentId -> className
+                // Map studentId -> className (since allStudents uses student_id as key)
                 val buckets = LinkedHashMap<String, MutableList<String>>()
                 rows.forEach { row ->
                     val cls = row.teacher_classes?.class_name ?: "Unknown"
-                    buckets.getOrPut(cls) { mutableListOf() }.add(row.id)
+                    buckets.getOrPut(cls) { mutableListOf() }.add(row.student_id)
                 }
                 classBuckets = buckets
 
